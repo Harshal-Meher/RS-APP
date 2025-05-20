@@ -1,0 +1,32 @@
+<div mat-dialog-title class="p-2 m-4 bg-secondary-subtle d-flex justify-content-between align-items-center">
+    <h2 class="m-0">User Details</h2>
+    <div mat-dialog-actions>
+      <mat-icon (click)="closeModel()" color="warn">close</mat-icon>
+    </div>
+  </div>
+  
+  <div mat-dialog-content>
+    <p><strong>Name:</strong> {{ userData.firstname }} {{ userData.lastname }}</p>
+    <p><strong>Email:</strong> {{ userData.email }}</p>
+    <p><strong>Mobile:</strong> {{ userData.mobile }}</p>
+    <p><strong>Gender:</strong> {{ userData.gender }}</p>
+    <p><strong>Date of Birth:</strong> {{ userData.dob | date: 'yyyy-MM-dd' }}</p>
+    <p><strong>Area:</strong> {{ userData.area }}</p>
+    <p><strong>City:</strong> {{ userData.city }}</p>
+    <p><strong>State:</strong> {{ userData.state }}</p>
+    <p><strong>Country:</strong> {{ userData.country }}</p>
+    <p><strong>Branch Name:</strong> {{ userData.branchname }}</p>
+    <p><strong>Batch Time:</strong> {{ userData.batchtime }}</p>
+    <p><strong>Enquiry Detail:</strong> {{ userData.enquirydetail }}</p>
+  
+    <div class="d-flex justify-content-end mt-3">
+      <button mat-icon-button color="primary" (click)="openEditDialog()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="deleteUser()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- <app-admin-footer></app-admin-footer> -->

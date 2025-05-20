@@ -1,0 +1,265 @@
+<div class="container-fluid mt-5">
+  <div class="row justify-content-center g-4 p-2">
+    <div class="col-12 col-md-6 text-center p-4">
+      <img src="/assets/Images/register.png" alt="Form Banner" class="img-fluid rounded border" style="height: auto;">
+    </div>
+
+    <div class="col-sm-6 mt-5 border shadow-lg p-4">
+      <form [formGroup]="signUp" (ngSubmit)="onSubmit()" class="row g-3">
+        <h2 class="py-4 m-2 text-center">Candidate Registration</h2>
+
+        <!-- Email and Mobile -->
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field class="w-100">
+              <mat-label>Email</mat-label>
+              <input matInput type="email" formControlName="email" placeholder="Email">
+              <mat-error *ngIf="signUp.get('email')?.hasError('required') && signUp.get('email')?.touched">
+                Email is required
+              </mat-error>
+              <mat-error *ngIf="signUp.get('email')?.hasError('pattern') && signUp.get('email')?.touched">
+                Please enter a valid email address
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-6">
+            <mat-form-field class="w-100">
+              <mat-label>Mobile No.</mat-label>
+              <input matInput type="text" formControlName="mobile" placeholder="Mobile Number">
+              <mat-error *ngIf="signUp.get('mobile')?.hasError('required') && signUp.get('mobile')?.touched">
+                Mobile number is required
+              </mat-error>
+              <mat-error *ngIf="signUp.get('mobile')?.invalid && signUp.get('mobile')?.touched">
+                Please enter a valid 10-digit mobile number
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <!-- First and Last Name -->
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field class="w-100">
+              <mat-label>First Name</mat-label>
+              <input matInput formControlName="firstname" placeholder="First Name">
+              <mat-error *ngIf="signUp.get('firstname')?.invalid && signUp.get('firstname')?.touched">
+                Valid first name is required (min 2 characters)
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-6">
+            <mat-form-field class="w-100">
+              <mat-label>Last Name</mat-label>
+              <input matInput formControlName="lastname" placeholder="Last Name">
+              <mat-error *ngIf="signUp.get('lastname')?.invalid && signUp.get('lastname')?.touched">
+                Valid last name is required (min 3 characters)
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <!-- DOB and Gender -->
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field class="w-100">
+              <mat-label>Date of Birth</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="dob">
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="signUp.get('dob')?.hasError('required')">
+                Date of birth is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-6">
+            <mat-form-field class="w-100">
+              <mat-label>Gender</mat-label>
+              <mat-select formControlName="gender">
+                <mat-option value="male">Male</mat-option>
+                <mat-option value="female">Female</mat-option>
+                <mat-option value="others">Others</mat-option>
+              </mat-select>
+              <mat-error *ngIf="signUp.get('gender')?.hasError('required')">
+                Gender is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <!-- Password & Confirm Password -->
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field class="w-100">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" formControlName="password">
+              <mat-error *ngIf="signUp.get('password')?.invalid && signUp.get('password')?.touched">
+                Password must be at least 5 characters long with letters and numbers
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-6">
+            <mat-form-field class="w-100">
+              <mat-label>Confirm Password</mat-label>
+              <input matInput type="password" formControlName="confirmpassword">
+              <mat-error *ngIf="signUp.get('confirmpassword')?.hasError('passwordMismatch')">
+                Passwords do not match
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <!-- Branch and Batch Time -->
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field class="w-100">
+              <mat-label>Branch Name</mat-label>
+              <mat-select formControlName="branchname">
+                <mat-option *ngFor="let branch of branchNames" [value]="branch">
+                  {{ branch }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="signUp.get('branchname')?.hasError('required') && signUp.get('branchname')?.touched">
+                Branch Name is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-6">
+            <mat-form-field class="w-100">
+              <mat-label>Batch Time</mat-label>
+              <input
+                type="text"
+                matInput
+                [formControl]="batchTimeControl"
+                [matAutocomplete]="batchTimeAuto"
+                placeholder="Select Batch Time"
+              >
+              <mat-autocomplete #batchTimeAuto="matAutocomplete" autoActiveFirstOption>
+                <mat-option *ngFor="let time of filteredBatchTimes | async" [value]="time">
+                  {{ time }}
+                </mat-option>
+              </mat-autocomplete>
+              <mat-error *ngIf="batchTimeControl.hasError('required') && batchTimeControl.touched">
+                Batch Time is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <!-- Country, State, and City with Autocomplete -->
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field class="w-100">
+              <mat-label>Country</mat-label>
+              <input
+                type="text"
+                matInput
+                [formControl]="countryControl"
+                [matAutocomplete]="countryAuto"
+                placeholder="Select Country"
+              >
+              <mat-autocomplete #countryAuto="matAutocomplete" autoActiveFirstOption>
+                <mat-option *ngFor="let country of filteredCountries | async" [value]="country">
+                  {{ country }}
+                </mat-option>
+              </mat-autocomplete>
+              <mat-error *ngIf="countryControl.hasError('required') && countryControl.touched">
+                Country is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-6">
+            <mat-form-field class="w-100">
+              <mat-label>State</mat-label>
+              <input
+                type="text"
+                matInput
+                [formControl]="stateControl"
+                [matAutocomplete]="stateAuto"
+                placeholder="Select State"
+              >
+              <mat-autocomplete #stateAuto="matAutocomplete" autoActiveFirstOption>
+                <mat-option *ngFor="let state of filteredStates | async" [value]="state">
+                  {{ state }}
+                </mat-option>
+              </mat-autocomplete>
+              <mat-error *ngIf="stateControl.hasError('required') && stateControl.touched">
+                State is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field class="w-100">
+              <mat-label>City</mat-label>
+              <input
+                type="text"
+                matInput
+                [formControl]="cityControl"
+                [matAutocomplete]="cityAuto"
+                placeholder="Select City"
+              >
+              <mat-autocomplete #cityAuto="matAutocomplete" autoActiveFirstOption>
+                <mat-option *ngFor="let city of filteredCities | async" [value]="city">
+                  {{ city }}
+                </mat-option>
+              </mat-autocomplete>
+              <mat-error *ngIf="cityControl.hasError('required') && cityControl.touched">
+                City is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-6">
+            <mat-form-field class="w-100">
+              <mat-label>Area</mat-label>
+              <input matInput formControlName="area">
+              <mat-error *ngIf="signUp.get('area')?.invalid && signUp.get('area')?.touched">
+                Area is required and should be max 30 letters
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <!-- Enquiry Detail -->
+        <div class="row">
+          <div class="col-sm-12">
+            <mat-form-field class="w-100">
+              <mat-label>Enquiry Details</mat-label>
+              <textarea matInput formControlName="enquirydetail" rows="3"></textarea>
+              <mat-error *ngIf="signUp.get('enquirydetail')?.hasError('required')">
+                Enquiry details are required
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <!-- Submit Buttons -->
+        <div class="d-flex justify-content-end gap-3 mt-4">
+          <button 
+            mat-raised-button 
+            color="primary" 
+            type="submit"
+            [disabled]="signUp.invalid || isLoading">
+            <div class="d-flex align-items-center gap-2">
+              <mat-spinner *ngIf="isLoading" color="warn" diameter="20"></mat-spinner>
+              <span *ngIf="!isLoading">Register</span>
+              <span *ngIf="isLoading">Saving...</span>
+            </div>
+          </button>
+
+          <button mat-raised-button type="reset" (click)="signUp.reset()">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

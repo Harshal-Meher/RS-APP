@@ -1,0 +1,130 @@
+<!-- <ngx-ui-loader *ngIf="isLoading" fgsColor="#345FF1" pbColor="#345FF1" fgsType="three-bounce" text="Loading..."></ngx-ui-loader> -->
+
+<div class="container-fluid mt-5 p-4">
+  <div class="row justify-content-center">
+    <!-- Contact Us Form Section -->
+    <div class="col-12 col-md-6 mb-4">
+      <form [formGroup]="contactUsForm" class="border rounded shadow-sm">
+        <h2 class="text-primary-subtle fw-medium fs-3 bg-light text-lg-start me-4 p-4">Contact Us</h2>
+
+        <!-- User Name -->
+        <div class="mb-3">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>User Name</mat-label>
+            <input matInput type="text" formControlName="userName" required />
+            <mat-error *ngIf="contactUsForm.get('userName')?.hasError('required')">
+              User Name is required.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" required />
+            <mat-error *ngIf="contactUsForm.get('email')?.hasError('required')">
+              Email is required.
+            </mat-error>
+            <mat-error *ngIf="contactUsForm.get('email')?.hasError('email')">
+              Please enter a valid email.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Mobile Number -->
+        <div class="mb-3">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Mobile No.</mat-label>
+            <input matInput type="text" formControlName="mobileNo" required />
+            <mat-error *ngIf="contactUsForm.get('mobileNo')?.hasError('required')">
+              Mobile number is required.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Enquiry Type -->
+        <div class="mb-3">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Enquiry</mat-label>
+            <mat-select formControlName="enquiry" required>
+              <mat-option value="" disabled>Select</mat-option>
+              <mat-option value="Course Join">Course Join</mat-option>
+              <mat-option value="Internship Join">Internship Join</mat-option>
+              <mat-option value="Course Fees">Course Fees</mat-option>
+            </mat-select>
+            <mat-error *ngIf="contactUsForm.get('enquiry')?.hasError('required')">
+              Please select an enquiry type.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Enquiry Details -->
+        <div class="mb-3">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Enquiry Details</mat-label>
+            <textarea matInput formControlName="enquiryDetails" rows="2" required></textarea>
+            <mat-error *ngIf="contactUsForm.get('enquiryDetails')?.hasError('required')">
+              Enquiry details are required.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Submit and Reset Buttons -->
+        <div class="d-flex justify-content-end p-4">
+          <button mat-stroked-button color="primary" class="me-2" [disabled]="contactUsForm.invalid" (click)="onSubmit()">Submit</button>
+          <button mat-stroked-button  type="reset">Reset</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Office Information Section -->
+    <div class="col-12 col-md-5">
+      <!-- Google Map -->
+      <div class="mb-4">
+        <h5 class="text-primary text-center">Find Us Here</h5>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3721.6223578722497!2d79.12621687525932!3d21.127616880546558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDA3JzM5LjQiTiA3OcKwMDcnNDMuNyJF!5e0!3m2!1sen!2sin!4v1732017625488!5m2!1sen!2sin"
+            loading="lazy"
+            allowfullscreen=""
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- Head Office Card -->
+      <div class="card mb-4 shadow-sm">
+        <h5 class="card-header text-primary bg-light">Head Office</h5>
+        <div class="card-body">
+          <h6 class="card-title">Branch 1</h6>
+          <p>Open Source Software Professional T&D Services</p>
+          <p>7, New Sahakar Nagar Main Road, Ramna Maroti Temple Road, Nandanwan</p>
+          <p>Nagpur-440009, (MH), India</p>
+        </div>
+      </div>
+
+      <!-- Contact Details Card -->
+      <div class="card mb-4 shadow-sm">
+        <h5 class="card-header text-primary bg-light">Contact Details</h5>
+        <div class="card-body">
+          <h6 class="card-title">From India</h6>
+          <p>Mobile No: +91-9535526186 || +91-7219106246</p>
+          <p>Email: info&#64;rsebizsolutions.com || hr&#64;rsebizsolutions.com</p>
+        </div>
+      </div>
+
+      <!-- Branch Office Card -->
+      <div class="card mb-4 shadow-sm">
+        <h5 class="card-header text-primary bg-light">Branch Office</h5>
+        <div class="card-body">
+          <h6 class="card-title">Branch 2</h6>
+          <p>PHP Professional Software T&D Inc.</p>
+          <p>Near Bata Showroom, Kasavanahalli</p>
+          <p>In Front of Wipro, Sarjapur Main Road</p>
+          <p>Bangalore - 560036</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

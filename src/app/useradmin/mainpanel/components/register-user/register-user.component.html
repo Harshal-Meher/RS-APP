@@ -1,0 +1,140 @@
+<div class="container-fluid py-4 bg-light vh-auto">
+  <!-- User Statistics Section -->
+  <div class="row g-4">
+    <div class="col-lg-4">
+      <mat-card class="stat-card bg-primary text-white shadow-lg">
+        <mat-card-content class="text-center py-4">
+          <mat-icon class="stat-icon">group</mat-icon>
+          <h6 class="stat-title">Total Users</h6>
+          <h3 class="stat-value p-2">{{ totalUserCount }}</h3>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col-lg-4">
+      <mat-card class="stat-card bg-success text-white shadow-lg">
+        <mat-card-content class="text-center py-4">
+          <mat-icon class="stat-icon">verified</mat-icon>
+          <h6 class="stat-title">Active Users</h6>
+          <h3 class="stat-value p-2">{{ activeUserCount }}</h3>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col-lg-4">
+      <mat-card class="stat-card bg-danger text-white shadow-lg">
+        <mat-card-content class="text-center py-4">
+          <mat-icon class="stat-icon">block</mat-icon>
+          <h6 class="stat-title">Inactive Users</h6>
+          <h3 class="stat-value p-2">{{ inactiveUserCount }}</h3>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <!-- Pending Activation Requests Section -->
+  <div class="row mt-4" *ngIf="activationRequests.length > 0">
+    <div class="col-12">
+      <mat-card class="shadow-sm border-0">
+        <mat-card-header class="bg-secondary-subtle p-2 text-black">
+          <mat-card-title class="m-0">Pending Activation Requests</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="p-3">
+          <mat-list>
+            <mat-list-item *ngFor="let request of activationRequests" class="py-2">
+              <div class="d-flex justify-content-between w-100 align-items-center">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="fw-semibold text-dark">{{ request.firstname }} {{ request.lastname }} ({{ request.email }})</span>
+                  <mat-chip color="accent" highlighted class="badge rounded-pill">
+                    Pending
+                  </mat-chip>
+                </div>
+                <button mat-raised-button color="primary" (click)="acceptRequest(request)">
+                  <mat-icon class="me-2">check_circle</mat-icon> Accept
+                </button>
+              </div>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <!-- User Management Section -->
+  <div class="row mt-4">
+    <!-- Users List -->
+    <div class="col-lg-8">
+      <mat-card class="shadow-sm border-0">
+        <mat-card-header class="bg-dark text-white d-flex justify-content-between align-items-center p-2">
+          <mat-card-title class="m-0">User List</mat-card-title>
+          <mat-icon class="cursor-pointer" (click)="refreshData()">refresh</mat-icon>
+        </mat-card-header>
+        <mat-card-content class="p-3">
+          <mat-list>
+            <mat-list-item *ngFor="let user of userView; let i = index" class="py-2">
+              <div class="d-flex justify-content-between w-100 align-items-center">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="fw-semibold text-dark">{{ i + 1 }}. {{ user.firstname }} {{ user.lastname }}</span>
+                  <mat-chip [color]="user.isActive ? 'primary' : 'warn'" highlighted class="badge rounded-pill">
+                    {{ user.isActive ? 'Active' : 'Inactive' }}
+                  </mat-chip>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <mat-radio-group
+                    [value]="user.isActive ? 'active' : 'inactive'"
+                    (change)="toggleActivation(user, $event.value)"
+                    class="status-toggle"
+                  >
+                    <mat-radio-button value="active" color="primary">Active</mat-radio-button>
+                    <mat-radio-button value="inactive" color="warn">Inactive</mat-radio-button>
+                  </mat-radio-group>
+                  <button mat-icon-button color="primary" (click)="selectUser(user)">
+                    <mat-icon>person</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Selected User Details -->
+    <div class="col-lg-4">
+      <mat-card class="shadow-sm border-0 h-100">
+        <mat-card-header class="bg-secondary text-white p-3 d-flex justify-content-between">
+          <mat-card-title class="m-0">User Details</mat-card-title>
+        </mat-card-header>
+        
+        <mat-card-content class="p-4">
+          <div *ngIf="selectedUser; else noUserSelected">
+            <p><strong>Name:</strong> {{ selectedUser.firstname }} {{ selectedUser.lastname }}</p>
+            <p><strong>Email:</strong> {{ selectedUser.email }}</p>
+            <p><strong>Password:</strong> {{ selectedUser.password }}</p>
+            <p><strong>Status:</strong>
+              <mat-chip [color]="selectedUser.isActive ? 'primary' : 'warn'" highlighted class="badge rounded-pill">
+                {{ selectedUser.isActive ? 'Active' : 'Inactive' }}
+              </mat-chip>
+            </p>
+            <p><strong>Activation Requested:</strong>
+              <mat-chip [color]="selectedUser.activationRequested ? 'accent' : 'default'" highlighted class="badge rounded-pill">
+                {{ selectedUser.activationRequested ? 'Pending Request' : 'No Request' }}
+              </mat-chip>
+            </p>
+            <div>
+              <button mat-icon-button color="accent" (click)="openDialogBox(selectedUser)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="deleteUser(selectedUser)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+          <ng-template #noUserSelected>
+            <p class="text-muted">Select a user to view details</p>
+          </ng-template>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

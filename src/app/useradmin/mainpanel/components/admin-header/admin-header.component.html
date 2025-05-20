@@ -1,0 +1,39 @@
+<div class="contianer-fluid">
+  <div class="row mt-5">
+    <div class="col-md">
+
+        <nav class="navbar text-dark bg-secondary-subtle d-flex justify-content-between align-items-center shadow-sm" >
+          <!-- //style="background-color: #1e2b3a;" -->
+          <h1 class="logo fw-medium p-2"> Admin Dashboard</h1>
+          <div *ngIf="authService.isLoggedIn()" class="d-flex align-items-center">
+            <span class="admin-email border shadow-sm bg-gradient p-2 d-flex align-items-center">
+              <mat-icon class="me-1">account_circle</mat-icon>
+              <span>Email Id: {{ getUserEmail() }}</span>
+            </span>
+
+            <button
+              mat-icon-button
+              color="warn"
+              (click)="authService.logout()"
+              class="ms-3"
+              [disabled]="isLoggingOut">
+              <mat-icon *ngIf="!isLoggingOut">logout</mat-icon>
+              <mat-spinner *ngIf="isLoggingOut" color="warn" diameter="20" class="ms-1"></mat-spinner>
+            </button>
+          </div>
+
+          <div *ngIf="!authService.isLoggedIn()" class="d-flex align-items-center">
+            <button mat-icon-button (click)="openAdminLoginDialog()" class="profile-btn border bo">
+              <img
+                src="https://static.vecteezy.com/system/resources/previews/007/069/364/original/3d-user-icon-in-a-minimalistic-style-user-symbol-for-your-website-design-logo-app-ui-vector.jpg"
+                alt="Profile Photo"
+                style="cursor: pointer; border-radius: 8px; background-color: #000;"
+                class="profile-photo">
+            </button>
+          </div>
+        </nav>
+
+
+    </div>
+  </div>
+</div>

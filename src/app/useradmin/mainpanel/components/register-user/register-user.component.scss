@@ -1,0 +1,161 @@
+.bg-light {
+  background: linear-gradient(135deg, #eef2f7 0%, #d9e2ec 100%) !important;
+}
+
+.stat-card {
+  border-radius: 12px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
+  }
+}
+
+.bg-primary {
+  background-color: #4a90e2 !important;
+}
+
+.bg-success {
+  background-color: #50c878 !important;
+}
+
+.bg-danger {
+  background-color: #ff6b6b !important;
+}
+
+.stat-icon {
+  font-size: 3rem !important;
+  height: 3rem !important;
+  width: 3rem !important;
+  margin-bottom: 12px !important;
+}
+
+.stat-title {
+  font-size: 1.1rem !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 !important;
+}
+
+.stat-value {
+  font-size: 2.5rem !important;
+  margin: 0 !important;
+}
+
+.shadow-sm {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08) !important;
+}
+
+.border-0 {
+  border: none !important;
+}
+
+.bg-dark {
+  background-color: #2d3748 !important;
+}
+
+.bg-secondary {
+  background-color: #718096 !important;
+}
+
+.bg-secondary-subtle {
+  background-color: #e2e8f0 !important; // Light gray for pending requests
+}
+
+.text-black {
+  color: #2d3748 !important;
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+.fw-semibold {
+  font-weight: 600 !important;
+}
+
+.text-dark {
+  color: #2d3748 !important;
+}
+
+.text-muted {
+  color: #a0aec0 !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.gap-2 {
+  gap: 8px !important;
+}
+
+.gap-3 {
+  gap: 12px !important;
+}
+
+.me-2 {
+  margin-right: 8px !important;
+}
+
+.p-2 {
+  padding: 8px !important;
+}
+
+.p-3 {
+  padding: 16px !important;
+}
+
+.p-4 {
+  padding: 24px !important;
+}
+
+.mt-4 {
+  margin-top: 24px !important;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.h-100 {
+  height: 100% !important;
+}
+
+.rounded-pill {
+  border-radius: 50rem !important;
+}
+
+.badge {
+  font-size: 0.85rem !important;
+  padding: 4px 8px !important;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+mat-list-item {
+  border-bottom: 1px solid #e2e8f0 !important;
+  &:last-child {
+    border-bottom: none !important;
+  }
+}
+
+// Radio button styling
+.status-toggle {
+  display: flex;
+  gap: 16px;
+}
+
+mat-radio-button {
+  font-size: 0.9rem !important;
+}

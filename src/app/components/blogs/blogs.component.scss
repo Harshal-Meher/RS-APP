@@ -1,0 +1,59 @@
+.service-highlights {
+    background-color: #f8f9fa;
+}
+
+.highlights-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.highlights-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+}
+
+.highlight-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.highlight-icon svg {
+    width: 50px;
+    height: 50px;
+    fill: var(--icon-color, #1ec288);
+}
+
+.highlight-card:hover .highlight-icon svg {
+    // fill: var(--guardian-color, #00ff91);
+    fill: linear-gradient(45deg, #028456, #036e9c);
+
+}
+
+.highlight-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.highlight-text {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .highlights-title {
+        font-size: 1.75rem;
+    }
+
+    .highlight-card {
+        padding: 1.5rem;
+    }
+}

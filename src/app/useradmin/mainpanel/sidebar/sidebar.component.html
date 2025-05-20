@@ -1,0 +1,872 @@
+<mat-drawer-container class="col-md-12 p-0 m-0 example-container">
+  <mat-drawer #drawer mode="side" [opened]="isMobile() ? false : true">
+    <button mat-icon-button (click)="drawer.toggle()" *ngIf="isMobile()">
+      <div class="cross">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+    </button>
+
+    <h4 class="text-center menu-title">Admin Panel</h4>
+
+    <!-- Admin Login -->
+    <li
+      class="d-flex nav-item align-items-center bg-gradient justify-content-between p-2 text-light"
+      *ngIf="!authService.isLoggedIn()"
+      (click)="openAdminLoginDialog(); isMobile() && drawer.toggle()"
+      style="cursor: pointer; border-radius: 8px"
+    >
+      <span class="me-2">Admin Login</span>
+      <img
+        src="https://static.vecteezy.com/system/resources/previews/007/069/364/original/3d-user-icon-in-a-minimalistic-style-user-symbol-for-your-website-design-logo-app-ui-vector.jpg"
+        alt="Profile Photo"
+        class="rounded-circle profile-photo"
+        style="width: 32px; height: 32px"
+      />
+    </li>
+
+    <ul
+      class="nav-list accordion"
+      id="sidebarAccordion"
+      *ngIf="authService.isLoggedIn()"
+    >
+      <li class="nav-item" (click)="isMobile() && drawer.toggle()">
+        <a routerLink="useradmin/mainpanel/home" class="nav-link bg-gradient">
+          Dashboard
+          <mat-icon class="text-danger fs-4">group</mat-icon>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="collapsible nav-link"
+          data-bs-toggle="collapse"
+          href="#manageCoursesMenu"
+          role="button"
+          aria-expanded="false"
+          aria-controls="manageCoursesMenu"
+          aria-label="Toggle Manage Courses menu"
+          data-parent="#sidebarAccordion"
+        >
+          Manage Courses
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="arrow-icon bi bi-chevron-down"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+            />
+          </svg>
+        </a>
+        <div class="collapse sub-menu" id="manageCoursesMenu">
+          <div class="sub-menu-item" (click)="isMobile() && drawer.toggle()">
+            <a
+              class="nav-link d-flex justify-content-between align-items-center"
+              data-bs-toggle="collapse"
+              href="#courseMenu"
+              role="button"
+              aria-expanded="false"
+              aria-controls="courseMenu"
+            >
+              Course
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-chevron-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                />
+              </svg>
+            </a>
+            <div class="collapse ps-5" id="courseMenu">
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/courses/add-course"
+                    >Add Course</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/courses/view-course"
+                    >View Course</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="sub-menu-item" (click)="isMobile() && drawer.toggle()">
+            <a
+              class="nav-link d-flex justify-content-between align-items-center"
+              data-bs-toggle="collapse"
+              href="#courseSubTypeMenu"
+              role="button"
+              aria-expanded="false"
+              aria-controls="courseSubTypeMenu"
+            >
+              Course Sub Type
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-chevron-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                />
+              </svg>
+            </a>
+            <div class="collapse ps-5" id="courseSubTypeMenu">
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/courses-types/add"
+                    >Add Course Sub Type</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/courses-types/view"
+                    >View Course Sub Type</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="sub-menu-item" (click)="isMobile() && drawer.toggle()">
+            <a
+              class="nav-link d-flex justify-content-between align-items-center"
+              data-bs-toggle="collapse"
+              href="#courseTypeMenu"
+              role="button"
+              aria-expanded="false"
+              aria-controls="courseTypeMenu"
+            >
+              Course Type
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-chevron-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                />
+              </svg>
+            </a>
+            <div class="collapse ps-5" id="courseTypeMenu">
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/courses-subtypes/add"
+                    >Add Course Type</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/courses-subtypes/view"
+                    >View Course Type</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="collapsible nav-link"
+          data-bs-toggle="collapse"
+          href="#manageEmployers"
+          role="button"
+          aria-expanded="false"
+          aria-controls="manageEmployers"
+          aria-label="Toggle Manage Employers menu"
+          data-parent="#sidebarAccordion"
+        >
+          Manage Employers
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="arrow-icon bi bi-chevron-down"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+            />
+          </svg>
+        </a>
+        <div class="collapse sub-menu" id="manageEmployers">
+          <div class="sub-menu-item" (click)="isMobile() && drawer.toggle()">
+            <a
+              class="nav-link d-flex justify-content-between align-items-center"
+              data-bs-toggle="collapse"
+              href="#employerMenu"
+              role="button"
+              aria-expanded="false"
+              aria-controls="employerMenu"
+            >
+              Employers
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-chevron-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                />
+              </svg>
+            </a>
+            <div class="collapse ps-5" id="employerMenu">
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/employers/add-employer"
+                    >Add Employer</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/employers/view-employer"
+                    >View Employer</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="sub-menu-item" (click)="isMobile() && drawer.toggle()">
+            <a
+              class="nav-link d-flex justify-content-between align-items-center"
+              data-bs-toggle="collapse"
+              href="#premiumEmployerMenu"
+              role="button"
+              aria-expanded="false"
+              aria-controls="premiumEmployerMenu"
+            >
+              Premium Employers
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-chevron-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                />
+              </svg>
+            </a>
+            <div class="collapse ps-5" id="premiumEmployerMenu">
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/employers/add-premium-employer"
+                    >Add Premium Employer</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/employers/view-premium-employer"
+                    >View Premium Employer</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="collapsible nav-link"
+          data-bs-toggle="collapse"
+          href="#manageCandidate"
+          role="button"
+          aria-expanded="false"
+          aria-controls="manageCandidate"
+          aria-label="Toggle Manage Candidates menu"
+          data-parent="#sidebarAccordion"
+        >
+          Manage Candidates
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="arrow-icon bi bi-chevron-down"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+            />
+          </svg>
+        </a>
+        <div class="collapse sub-menu" id="manageCandidate">
+          <div class="sub-menu-item" (click)="isMobile() && drawer.toggle()">
+            <a
+              class="nav-link d-flex justify-content-between align-items-center"
+              data-bs-toggle="collapse"
+              href="#candidateMenu"
+              role="button"
+              aria-expanded="false"
+              aria-controls="candidateMenu"
+            >
+              Candidates
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-chevron-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                />
+              </svg>
+            </a>
+            <div class="collapse ps-5" id="candidateMenu">
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/candidates/add-candidate"
+                    >Add Candidates</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/candidates/view-candidate"
+                    >View Candidates</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="sub-menu-item" (click)="isMobile() && drawer.toggle()">
+            <a
+              class="nav-link d-flex justify-content-between align-items-center"
+              data-bs-toggle="collapse"
+              href="#candidateMenu1"
+              role="button"
+              aria-expanded="false"
+              aria-controls="candidateMenu1"
+            >
+              Premium Candidates
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-chevron-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                />
+              </svg>
+            </a>
+            <div class="collapse ps-5" id="candidateMenu1">
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/premium-candidates/add-premium-candidate"
+                    >Add Premium Candidates</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/premium-candidates/view-premium-candidate"
+                    >View Premium Candidates</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="collapsible nav-link"
+          data-bs-toggle="collapse"
+          href="#manageJobs"
+          role="button"
+          aria-expanded="false"
+          aria-controls="manageJobs"
+          aria-label="Toggle Manage Jobs menu"
+          data-parent="#sidebarAccordion"
+        >
+          Manage Jobs
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="arrow-icon bi bi-chevron-down"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+            />
+          </svg>
+        </a>
+        <div class="collapse sub-menu" id="manageJobs">
+          <div class="sub-menu-item" (click)="isMobile() && drawer.toggle()">
+            <a
+              class="nav-link d-flex justify-content-between align-items-center"
+              data-bs-toggle="collapse"
+              href="#jobMenu"
+              role="button"
+              aria-expanded="false"
+              aria-controls="jobMenu"
+            >
+              Jobs
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-chevron-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                />
+              </svg>
+            </a>
+            <div class="collapse ps-5" id="jobMenu">
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/jobs/add-job"
+                    >Add Jobs</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/jobs/view-job"
+                    >View Jobs</a
+                  >
+                </li>
+               
+              </ul>
+            </div>
+          </div>
+
+          <div class="sub-menu-item" (click)="isMobile() && drawer.toggle()">
+            <a
+              class="nav-link d-flex justify-content-between align-items-center"
+              data-bs-toggle="collapse"
+              href="#skillMenu"
+              role="button"
+              aria-expanded="false"
+              aria-controls="skillMenu"
+            >
+              Skills
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-chevron-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                />
+              </svg>
+            </a>
+            <div class="collapse ps-5" id="skillMenu">
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/skills/add-skill"
+                    >Add Skills</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/skills/view-skill"
+                    >View Skills</a
+                  >
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+
+          <div class="sub-menu-item" (click)="isMobile() && drawer.toggle()">
+            <a
+              class="nav-link d-flex justify-content-between align-items-center"
+              data-bs-toggle="collapse"
+              href="#subSkillMenu"
+              role="button"
+              aria-expanded="false"
+              aria-controls="subSkillMenu"
+            >
+              Sub Skills
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-chevron-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                />
+              </svg>
+            </a>
+            <div class="collapse ps-5" id="subSkillMenu">
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/sub-skills/add-sub-skills"
+                    >Add Sub Skills</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/sub-skills/view-sub-skills"
+                    >View Sub Skills</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="collapsible nav-link"
+          data-bs-toggle="collapse"
+          href="#managePackages"
+          role="button"
+          aria-expanded="false"
+          aria-controls="managePackages"
+          aria-label="Toggle Manage Packages menu"
+          data-parent="#sidebarAccordion"
+        >
+          Manage Packages
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="arrow-icon bi bi-chevron-down"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+            />
+          </svg>
+        </a>
+        <div class="collapse sub-menu" id="managePackages">
+          <div class="sub-menu-item" (click)="isMobile() && drawer.toggle()">
+            <a
+              class="nav-link d-flex justify-content-between align-items-center"
+              data-bs-toggle="collapse"
+              href="#packageMenu"
+              role="button"
+              aria-expanded="false"
+              aria-controls="packageMenu"
+            >
+              Packages
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-chevron-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                />
+              </svg>
+            </a>
+            <div class="collapse ps-5" id="packageMenu">
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/packages/add-package"
+                    >Add Packages</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/useradmin/mainpanel/packages/view-package"
+                    >View Packages</a
+                  >
+                </li>
+               
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="collapsible nav-link"
+          data-bs-toggle="collapse"
+          href="#manageMembership"
+          role="button"
+          aria-expanded="false"
+          aria-controls="manageMembership"
+          aria-label="Toggle Manage Membership menu"
+          data-parent="#sidebarAccordion"
+        >
+          Manage Membership
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="arrow-icon bi bi-chevron-down"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+            />
+          </svg>
+        </a>
+        <div class="collapse sub-menu" id="manageMembership">
+          <div class="sub-menu-item" (click)="isMobile() && drawer.toggle()">
+            <a
+              class="nav-link d-flex justify-content-between align-items-center"
+              data-bs-toggle="collapse"
+              href="#membershipMenu"
+              role="button"
+              aria-expanded="false"
+              aria-controls="membershipMenu"
+            >
+              Membership
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-chevron-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                />
+              </svg>
+            </a>
+            <div class="collapse ps-5" id="membershipMenu">
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/memberships/membership-type/add-membership"
+                    >Add Membership</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="/memberships/membership-type/view-membership"
+                    >View Membership</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="collapsible nav-link"
+          data-bs-toggle="collapse"
+          href="#notification"
+          role="button"
+          aria-expanded="false"
+          aria-controls="notification"
+          aria-label="Toggle Manage Notification menu"
+          data-parent="#sidebarAccordion"
+        >
+          Manage Notification
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="arrow-icon bi bi-chevron-down"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+            />
+          </svg>
+        </a>
+        <div class="collapse sub-menu" id="notification">
+          <div class="sub-menu-item" (click)="isMobile() && drawer.toggle()">
+            <a
+              class="nav-link d-flex justify-content-between align-items-center"
+              data-bs-toggle="collapse"
+              href="#notificationMenu"
+              role="button"
+              aria-expanded="false"
+              aria-controls="notificationMenu"
+            >
+              Notification
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-chevron-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                />
+              </svg>
+            </a>
+            <div class="collapse ps-5" id="notificationMenu">
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    class="nav-link"
+                    routerLink="useradmin/mainpanel/send-notification"
+                    >Send Notification</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item" *ngIf="authService.isLoggedIn()" (click)="isMobile() && drawer.toggle()">
+        <button
+          mat-stroked-button
+          color="warn"
+          (click)="authService.logout()"
+          class="ms-3"
+          [disabled]="isLoggingOut"
+        >
+          Logout
+          <mat-icon *ngIf="!isLoggingOut">logout</mat-icon>
+          <mat-spinner
+            *ngIf="isLoggingOut"
+            color="warn"
+            diameter="20"
+            class="ms-1"
+          ></mat-spinner>
+        </button>
+      </li>
+    </ul>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <div class="viewhidden">
+      <div class="fixed-top">
+        <div class="top-bar-content d-flex justify-content-between">
+          <button mat-icon-button (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <!-- <h2 class="top-bar-title">Admin Panel</h2> -->
+          <div class="panel">
+            <nav class="navbar text-dark d-flex justify-content-between align-items-center shadow-sm" >
+              <!-- //style="background-color: #1e2b3a;" -->
+              <div *ngIf="authService.isLoggedIn()" class="d-flex align-items-center">
+                <span class="admin-email border shadow-sm bg-gradient p-2 d-flex align-items-center">
+                  <mat-icon class="me-1">account_circle</mat-icon>
+                  <span>Email Id: {{ getUserEmail() }}</span>
+                </span>
+    
+                <button
+                  mat-icon-button
+                  color="warn"
+                  (click)="authService.logout()"
+                  class="ms-3"
+                  [disabled]="isLoggingOut">
+                  <mat-icon *ngIf="!isLoggingOut">logout</mat-icon>
+                  <mat-spinner *ngIf="isLoggingOut" color="warn" diameter="20" class="ms-1"></mat-spinner>
+                </button>
+              </div>
+    
+              <div *ngIf="!authService.isLoggedIn()" class="d-flex align-items-center">
+                <button mat-icon-button (click)="openAdminLoginDialog()" class="profile-btn">
+                  <mat-icon>account_circle</mat-icon>
+                </button>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid mt-2">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

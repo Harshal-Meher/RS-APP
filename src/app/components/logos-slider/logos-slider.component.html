@@ -1,0 +1,20 @@
+<!-- partners-slider.component.html -->
+<section class="container p-4 py-5 bg-body-secondary">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center mb-4">
+        <h2 class="highlights-title">Our company</h2>
+            <p class="highlights-subtitle text-muted">What sets us apart in development excellence</p>
+      </div>
+      
+      <div class="col-10 col-md-12">
+        <mat-card class="slider p-4 overflow-hidden">
+          <div class="slider-items d-flex justify-content-evenly align-items-center ">
+            <img *ngFor="let partner of doubledPartners" 
+                 [src]="partner" 
+                 alt="Partner Logo"
+                 class="partner-logo img-fluid mx-3">
+          </div>
+        </mat-card>
+      </div>
+    </div>
+</section>

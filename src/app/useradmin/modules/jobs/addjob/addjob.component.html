@@ -1,0 +1,231 @@
+<ngx-ui-loader
+  *ngIf="isSubmitting"
+  fgsColor="#345FF1"
+  pbColor="#345FF1"
+  fgsType="three-bounce"
+  text="Loading..."
+></ngx-ui-loader>
+
+<div *ngIf="showSuccessMessage" class="alert alert-success mt-3" role="alert">
+  Data added successfully! Redirecting in a moment...
+</div>
+
+<div class="container my-3">
+  <div class="row justify-content-start">
+    <div class="col-md-10 bg-light border p-4">
+      <h2 class="mb-4 text-start">What job do you want to post?</h2>
+      <hr />
+      <form [formGroup]="jobForm" (ngSubmit)="addJob()">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Company *</mat-label>
+              <input
+                matInput
+                type="text"
+                formControlName="companyName"
+                placeholder="Enter company name"
+              />
+              <mat-error
+                *ngIf="
+                  jobForm.get('companyName')?.invalid &&
+                  jobForm.get('companyName')?.touched
+                "
+              >
+                Company name is required and must not exceed 50 characters.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Job Title *</mat-label>
+              <input
+                matInput
+                type="text"
+                formControlName="jobTitle"
+                placeholder="Enter job title"
+              />
+              <mat-error
+                *ngIf="
+                  jobForm.get('jobTitle')?.invalid &&
+                  jobForm.get('jobTitle')?.touched
+                "
+              >
+                Job title is required and must not exceed 100 characters.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Location *</mat-label>
+              <input
+                matInput
+                type="text"
+                formControlName="jobLocation"
+                placeholder="Enter job location"
+              />
+              <mat-error
+                *ngIf="
+                  jobForm.get('jobLocation')?.invalid &&
+                  jobForm.get('jobLocation')?.touched
+                "
+              >
+                Location is required.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Employment Type *</mat-label>
+              <mat-select formControlName="employmentType">
+                <mat-option value="" disabled>Choose...</mat-option>
+                <mat-option value="Full-time">Full-time</mat-option>
+                <mat-option value="Part-time">Part-time</mat-option>
+                <mat-option value="Contract">Contract</mat-option>
+                <mat-option value="Temporary">Temporary</mat-option>
+              </mat-select>
+              <mat-error
+                *ngIf="
+                  jobForm.get('employmentType')?.invalid &&
+                  jobForm.get('employmentType')?.touched
+                "
+              >
+                Please select an employment type.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Job Description *</mat-label>
+            <textarea
+              matInput
+              rows="2"
+              formControlName="jobDescription"
+              placeholder="Write job description here..."
+            ></textarea>
+            <mat-error
+              *ngIf="
+                jobForm.get('jobDescription')?.invalid &&
+                jobForm.get('jobDescription')?.touched
+              "
+            >
+              Job description must be at least 50 characters long.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label"
+            >How would you like to receive your applicants? *</label
+          >
+          <mat-radio-group formControlName="applicationMethod" class="d-block">
+            <mat-radio-button value="LinkedIn" class="d-block mb-2"
+              >Recommended: Let candidates apply with their LinkedIn profile and
+              notify me by email</mat-radio-button
+            >
+          </mat-radio-group>
+          <mat-error
+            *ngIf="
+              jobForm.get('applicationMethod')?.invalid &&
+              jobForm.get('applicationMethod')?.touched
+            "
+          >
+            Please select an application method.
+          </mat-error>
+        </div>
+
+        <div class="mb-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              formControlName="notificationEmail"
+              placeholder="example@example.com"
+            />
+            <mat-error
+              *ngIf="
+                jobForm.get('notificationEmail')?.invalid &&
+                jobForm.get('notificationEmail')?.touched
+              "
+            >
+              Please enter a valid email address.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label"
+            >Select screening questions to ask when applicants apply</label
+          >
+          <div class="d-block">
+            <mat-checkbox formControlName="isAuthorizedToWork" class="d-block"
+              >Are you legally authorized to work in the United
+              States?</mat-checkbox
+            >
+            <mat-checkbox formControlName="requiresSponsorship" class="d-block"
+              >Will you now, or in the future, require sponsorship for
+              employment visa status?</mat-checkbox
+            >
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>How did you hear about us?</mat-label>
+            <mat-select formControlName="referralSource">
+              <mat-option value="" disabled>Choose one...</mat-option>
+              <mat-option value="LinkedIn">LinkedIn</mat-option>
+              <mat-option value="Google">Google</mat-option>
+              <mat-option value="Referral">Referral</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="row g-3 align-items-center">
+          <div class="col-12 col-md-6">
+            <mat-checkbox formControlName="isActive"
+              >Mark as Active</mat-checkbox
+            >
+            <mat-error
+              *ngIf="
+                jobForm.controls['isActive'].invalid &&
+                jobForm.controls['isActive'].touched
+              "
+            >
+              Chat option is required
+            </mat-error>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <button mat-button type="button" class="me-2">Cancle</button>
+          <button
+            mat-raised-button
+            color="primary"
+            [disabled]="jobForm.invalid || isSubmitting"
+            class="save-button d-flex align-items-center justify-content-center"
+          >
+            <ng-container *ngIf="!isSubmitting; else loading">
+              Save
+            </ng-container>
+
+            <ng-template #loading>
+              <div
+                class="d-flex align-items-center justify-content-center gap-2"
+              >
+                <mat-spinner diameter="20"></mat-spinner>
+                <span>Saving...</span>
+              </div>
+            </ng-template>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+<!-- Header Section -->
+<div class="header-section">
+  <div class="content-wrapper">
+    <h1 class="main-title animate-fade-in">
+      Welcome to <span class="title-highlight">Open Source Professionals</span>
+    </h1>
+
+    <p class="main-subtitle animate-fade-in">
+      Hire the Top 5% Experts in 
+      <span>ANGULAR / REACT</span> |
+      <span>PHP / MYSQL</span> |
+      <span>CodeIgniter / Laravel MVC</span> |
+      <span>JAVA SPRINGBOOT</span>
+    </p>
+
+    <div class="contact-info animate-slide-up">
+      <span class="contact-icon">📞</span> 
+      <a href="tel:+917219106246">+91-72191 06246</a> | 
+      <a href="tel:+919535526186">+91-95355 26186</a>
+    </div>
+
+    <div class="cta-buttons animate-slide-up">
+      <button class="btn btn-primary" routerLink="/employer/register-employer">Hire Top Talent</button>
+      <button class="btn btn-secondary" routerLink="/course">Explore Courses</button>
+    </div>
+  </div>
+
+  <div class="hero-image animate-fade-in">
+    <img src="/assets/Images/programming-background-with-person-working-with-codes-computer (2).jpg" alt="Open Source Professionals" class="feature-img">
+  </div>
+</div>
+
+<div class="col-lg-12 col-lg-6 col-md-8 col-sm-12 border d-flex justify-content-center align-items-center shadow-lg p-2 bg-gradient">
+  <div class="p-3 w-100">
+    <mat-accordion class="expansion-container p-3 gap-3" [multi]="false">
+
+      <mat-expansion-panel [expanded]="activeSection === 'batch'" (opened)="openPanel('batch')" hideToggle>
+        <mat-expansion-panel-header class="d-flex justify-content-between align-items-center">
+          <mat-panel-title>Batch Timing</mat-panel-title>
+          <span class="ml-auto">
+            <mat-icon>keyboard_arrow_down</mat-icon>
+          </span>
+        </mat-expansion-panel-header>
+        <div class="batch-timing-content p-3">
+          <h3 class="text-center">Flexible Batch Schedules (10 AM - 10 PM)</h3>
+          <div class="table-responsive">
+            <table class="table table-bordered text-center batch-timing-table">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Day</th>
+                  <th>Morning Batch</th>
+                  <th>Afternoon Batch</th>
+                  <th>Evening Batch</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let day of ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']">
+                  <td>{{ day }}</td>
+                  <td>10 AM - 12 PM</td>
+                  <td>1 PM - 4 PM</td>
+                  <td>6 PM - 10 PM</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </mat-expansion-panel>
+
+      <!-- Placed Candidates Panel -->
+      <mat-expansion-panel [expanded]="activeSection === 'placed'" (opened)="openPanel('placed')" hideToggle>
+        <mat-expansion-panel-header class="d-flex justify-content-between align-items-center">
+          <mat-panel-title>Placed Candidates</mat-panel-title>
+          <span class="ml-auto">
+            <mat-icon>keyboard_arrow_down</mat-icon>
+          </span>
+        </mat-expansion-panel-header>
+        <p class="p-3">500+ successful placements with a 95% satisfaction rate.</p>
+      </mat-expansion-panel>
+
+      <!-- Courses On Demand Panel -->
+      <mat-expansion-panel [expanded]="activeSection === 'courses'" (opened)="openPanel('courses')" hideToggle>
+        <mat-expansion-panel-header class="d-flex justify-content-between align-items-center">
+          <mat-panel-title>Courses On Demand</mat-panel-title>
+          <span class="ml-auto">
+            <mat-icon>keyboard_arrow_down</mat-icon>
+          </span>
+        </mat-expansion-panel-header>
+        <p class="p-3">Customized training programs to meet your specific requirements.</p>
+      </mat-expansion-panel>
+
+    </mat-accordion>
+  </div>
+</div>

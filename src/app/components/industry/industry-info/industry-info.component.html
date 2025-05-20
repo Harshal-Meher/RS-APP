@@ -1,0 +1,68 @@
+<div class="container-fluid p-0">
+  <!-- Hero Section -->
+  <div
+    class="hero-section position-relative text-white"
+    [style.backgroundImage]="'url(' + (industry?.heroImage || 'https://via.placeholder.com/1920x1080') + ')'"
+  >
+    <div class="hero-overlay"></div>
+    <div class="hero-content position-relative p-4 p-md-5">
+      <h2 class="hero-category text-uppercase">Industries / {{ industry?.name }}</h2>
+      <h1 class="hero-title fw-bold">{{ industry?.name | titlecase }} go boundaryless</h1>
+      <p class="hero-subtitle">
+        We help you drive holistic growth with a secure, boundaryless, and humane approach.
+      </p>
+      <button class="btn btn-light rounded-pill px-4 py-2 mt-3" (click)="openContact()">
+        Let's talk <i class="fa-solid fa-arrow-right ms-2"></i>
+      </button>
+    </div>
+
+    <!-- Downward Arrow -->
+    <div class="scroll-down-arrow" (click)="scrollToContent()">
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+  </div>
+
+  <!-- Content Section -->
+  <div class="container mt-5" #contentSection>
+    <!-- Header -->
+    <div class="p-4 rounded-3 mb-4 shadow-sm d-flex align-items-center justify-content-between flex-wrap gap-3">
+      <button mat-stroked-button class="text-success" routerLink="/industry">
+        <mat-icon class="me-1">arrow_backward</mat-icon>
+        Back to Industries
+      </button>
+      <h1 class="fw-bold mb-0">{{ industry?.name }} Details</h1>
+    </div>
+
+    <!-- Main Content Card -->
+    <div class="card border-0 shadow-lg rounded-4 p-4 p-md-5">
+      <div class="d-flex align-items-center mb-4">
+        <i class="{{ industry?.icon }} fs-1 me-3" style="color: #10b981;"></i>
+        <h3 class="fw-bold mb-0 text-dark">{{ industry?.name }}</h3>
+      </div>
+
+      <!-- Resources -->
+      <h4 class="fw-semibold text-secondary mb-3 border-bottom border-success border-2 pb-2">Resources</h4>
+      <ul class="list-group list-group-flush mb-5">
+        <li
+          class="list-group-item border-0 py-2"
+          *ngFor="let detail of industry?.details"
+          [innerHTML]="detail"
+        ></li>
+      </ul>
+
+      <!-- Services -->
+      <h4 class="fw-semibold text-secondary mb-3 border-bottom border-success border-2 pb-2">Services</h4>
+      <ul class="list-group list-group-flush">
+        <li
+          class="list-group-item border-0 py-2 d-flex align-items-center"
+          *ngFor="let service of industry?.services"
+        >
+          <i class="fa-solid fa-circle-check me-2" style="color: #10b981;"></i>
+          <span>{{ service }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

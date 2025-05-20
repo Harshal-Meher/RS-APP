@@ -1,0 +1,127 @@
+<div class="container p-3 vh-100">
+  <mat-card class="shadow-sm p-0 mt-5" style="height: 650px;">
+      <h1 class="main-title animate-fade-in p-4 mt-3 bg-body-tertiary shadow-sm bg-opacity-75">
+        Over <span class="title-highlight">50,000 +</span> jobs are waiting for you
+      </h1>
+          <mat-card-content class="d-flex flex-column flex-md-row g-0">
+      <!-- Left Column -->
+      <div class="col-md-4 col-12 p-4 border-end min-vh-100">
+        <h2 class="mat-h2 mb-3 fw-bold">Top Job Picks for You</h2>
+        <p class="text-muted small mb-2">Based on your profile, preferences, and activity</p>
+        <p class="text-muted small mb-4 p-2 bg-secondary-subtle fw-medium">{{ jobDetails.length }} results</p>
+        <mat-divider class="mb-4"></mat-divider>
+        <mat-list class="job-list p-3" style="max-height: 300px; overflow-y: auto;">
+           <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Search Jobs</mat-label>
+            <input matInput [(ngModel)]="searchQuery" (input)="onSearch()" placeholder="Enter job title or company">
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+          <mat-list-item 
+            *ngFor="let job of jobDetails"
+            (click)="selectJob(job)"
+            [class.bg-primary-subtle]="job === selectedJob"
+            class="job-item d-flex h-50 align-items-center gap-3 rounded flex-wrap border-bottom">
+            
+            <div class="d-flex justify-content-between align-items-center gap-3 w-100">
+              <img
+                [src]="job.companyLogo || 'https://placehold.co/50x50'"
+                alt="{{ job.companyName }} logo"
+                class="rounded-circle"
+                style="width: 50px; height: 50px; object-fit: cover; flex-shrink: 0;">
+        
+              <div class="flex-grow-1 overflow-hidden p-2">
+                <h3 class="mat-body-strong mb-1 text-truncate">{{ job.jobTitle }}</h3>
+                <span class="text-muted small d-block text-truncate">Company : {{ job.companyName }}</span>
+                <span class="text-muted small d-block text-truncate">City : {{ job.jobLocation }}</span>
+              </div>
+        
+              <div class="text-end flex-shrink-0">
+                <span class="text-muted small">{{ job.postedTime }}</span>
+              </div>
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+
+      <!-- Right Column -->
+      <div class="col-md-8 col-12 p-4" *ngIf="selectedJob">
+        <mat-card class="shadow-lg rounded">
+          <mat-card-header class="d-flex align-items-center py-3">
+            <img
+              mat-card-avatar
+              [src]="selectedJob.companyLogo || 'https://placehold.co/50x50'"
+              alt="{{ selectedJob.companyName }} logo"
+              class="me-3 rounded-circle"
+              style="width: 48px; height: 48px; object-fit: cover;">
+            <div>
+              <mat-card-title class="mat-h2 mb-1 fw-bold">{{ selectedJob.jobTitle }} [ {{selectedJob.companyName}} ]</mat-card-title>
+              <mat-card-subtitle class="text-muted">
+              <span>City : </span>{{ selectedJob.jobLocation }}  •  {{ selectedJob.employmentType }} 
+              </mat-card-subtitle>
+            </div>
+          </mat-card-header>
+          <mat-card-content class="py-4">
+            <p class="h5 text-success mb-4" *ngIf="selectedJob.salary">
+              {{ selectedJob.salary }}
+            </p>
+            <div class="mb-4" *ngIf="selectedJob.workType || selectedJob.jobType">
+              <mat-chip-listbox>
+                <mat-chip color="primary" selected *ngIf="selectedJob.workType">
+                  {{ selectedJob.workType }}
+                </mat-chip>
+                <mat-chip *ngIf="selectedJob.jobType">
+                  {{ selectedJob.jobType }}
+                </mat-chip>
+              </mat-chip-listbox>
+            </div>
+            <div class="d-flex flex-column flex-md-row gap-3 mb-4">
+              <button mat-stroked-button  class="px-4 mb-2 mb-md-0">
+                Apply
+              </button>
+              <button mat-stroked-button color="warn" class="px-4 mb-2 mb-md-0">
+                Save
+              </button>
+              <!-- <button mat-icon-button >
+                <mat-icon>share</mat-icon>
+              </button> -->
+            </div>
+
+            <!-- About the Job -->
+            <h4 class="mat-h4 mb-3 fw-semibold">About the Job</h4>
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="ps-3">
+                  <li *ngFor="let line of selectedJob.jobDescription?.split('\n')" class="mb-2">
+                    {{ line }}
+                  </li>
+                </ul>
+              </div>
+            </div>            
+            
+            <!-- Job Requirements -->
+            <mat-expansion-panel class="mt-4" *ngIf="selectedJob.requirements?.length">
+              <mat-expansion-panel-header>
+                <mat-panel-title class="fw-semibold">Requirements</mat-panel-title>
+              </mat-expansion-panel-header>
+              <ul class="list-unstyled ps-4">
+                <li *ngFor="let req of selectedJob.requirements" class="mb-2">{{ req }}</li>
+              </ul>
+            </mat-expansion-panel>
+
+            <!-- Skills Section
+            <h4 class="mat-h4 mt-4 fw-semibold">Skills Required</h4>
+            <h4 class="mat-h4 mt-4 fw-semibold">Skills Required</h4>
+            <mat-chip-listbox class="mb-4">
+              <mat-chip *ngFor="let skill of allSkills" color="accent" selected>
+                {{ skill |json}}
+              </mat-chip>
+            </mat-chip-listbox> -->
+            
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+<app-footer></app-footer>

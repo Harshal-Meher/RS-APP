@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <h2 class="fw-bold mt-4 p-4 text-center shadow-lg bg-transparent">Select Your Industry. Discover Our Impact.</h2>
+  <div class="row">
+    <!-- Left Column -->
+    <div class="col-md-6">
+      <div class="industry-card p-2" *ngFor="let industry of leftColumnIndustries" (click)="selectIndustry(industry)">
+        <div class="industry-item d-flex align-items-center justify-content-between">
+          <div class="d-flex align-items-center">
+            <i class="{{ industry.icon }} me-3 fs-4"></i>
+            <span class="fw-medium">{{ industry.name }}</span>
+          </div>
+          <i class="fa-solid fa-arrow-right arrow-icon"></i>
+        </div>
+      </div>
+    </div>
+    <!-- Right Column -->
+    <div class="col-md-6">
+      <div class="industry-card p-2" *ngFor="let industry of rightColumnIndustries" (click)="selectIndustry(industry)">
+        <div class="industry-item d-flex align-items-center justify-content-between">
+          <div class="d-flex align-items-center">
+            <i class="{{ industry.icon }} me-3 fs-4"></i>
+            <span class="fw-medium">{{ industry.name }}</span>
+          </div>
+          <i class="fa-solid fa-arrow-right arrow-icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

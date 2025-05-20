@@ -1,0 +1,63 @@
+<ngx-ui-loader *ngIf="isSubmitting" fgsColor="#345FF1" pbColor="#345FF1" fgsType="three-bounce" text="Loading..."></ngx-ui-loader>
+
+<div *ngIf="showSuccessMessage" class="alert alert-success mt-3" role="alert">
+  Skills Data added successfully! Redirecting in a moment...
+</div>
+<hr>
+<div class="container my-3">
+  <div class="row justify-content-start">
+    <div class="col-md-8 bg-light p-4 rounded shadow-sm border">
+      <form [formGroup]="skillForm" (ngSubmit)="submitSkills()" class="row g-3">
+        <h2 class="text-start mb-4">Select Skills</h2>
+
+        <div class="col-12 mb-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Choose your skill</mat-label>
+            <mat-select formControlName="skillSelect">
+              <mat-option *ngFor="let skill of skillsArr" [value]="skill">{{ skill }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="skillForm.controls['skillSelect'].invalid && skillForm.controls['skillSelect'].touched">
+              Please select a skill.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-12 mb-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Skill Level</mat-label>
+            <mat-select formControlName="skillLevel">
+              <mat-option value="Beginner">Beginner</mat-option>
+              <mat-option value="Intermediate">Intermediate</mat-option>
+              <mat-option value="Advanced">Advanced</mat-option>
+            </mat-select>
+            <mat-error *ngIf="skillForm.controls['skillLevel'].invalid && skillForm.controls['skillLevel'].touched">
+              Please select your skill level.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-12 mb-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Years of Experience</mat-label>
+            <input matInput type="number" formControlName="experienceYears" min="0" placeholder="Enter years of experience">
+            <mat-error *ngIf="skillForm.controls['experienceYears'].invalid && skillForm.controls['experienceYears'].touched">
+              Please enter a valid number.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-12 mb-3">
+          <mat-checkbox formControlName="isActive">Is Active?</mat-checkbox>
+          <mat-error *ngIf="skillForm.controls['isActive'].invalid && skillForm.controls['isActive'].touched">
+            Please confirm active status.
+          </mat-error>
+        </div>
+        
+        <div class="col-12 mt-4 d-flex justify-content-end">
+          <button mat-raised-button color="primary" type="submit" [disabled]="skillForm.invalid">Submit</button>
+          <button mat-raised-button color="warn" type="reset" class="ms-2">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

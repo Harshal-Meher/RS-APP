@@ -1,0 +1,171 @@
+<ngx-ui-loader *ngIf="isSubmitting" fgsColor="#345FF1" pbColor="#345FF1" fgsType="three-bounce"></ngx-ui-loader>
+  <!-- <div *ngIf="showSuccessMessage" class="alert alert-success mt-3" role="alert">
+    Data added successfully! Redirecting in a moment...
+  </div> -->
+  <div class="container">
+    <div class="row justify-content-start">
+    <div class="col-lg-8 my-3">
+      <mat-card class="shadow-lg">
+        <mat-card-header>
+          <mat-card-title class="fs-5">Candidate registration</mat-card-title>
+          <hr>
+        </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="frmCandidates" (ngSubmit)="addCandidates()">
+        <div class="row mb-4">
+          <div class="col-md-6">
+          <mat-form-field class="w-100">
+            <mat-label>Username</mat-label>
+            <input matInput type="text" formControlName="username" placeholder="Enter username" />
+            <mat-error *ngIf="frmCandidates.controls['username'].invalid && frmCandidates.controls['username'].touched">
+            Please enter a valid candidate name.
+            </mat-error>
+          </mat-form-field>
+          </div>
+          <div class="col-md-6">
+          <mat-form-field class="w-100">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" placeholder="Enter email" />
+            <mat-error *ngIf="frmCandidates.controls['email'].invalid && frmCandidates.controls['email'].touched">
+            Please enter a valid email.
+            </mat-error>
+          </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row mb-4" appPasswordMatch>
+          <div class="col-md-6">
+          <mat-form-field class="w-100">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password" placeholder="Password" />
+            <mat-error *ngIf="frmCandidates.controls['password'].invalid && (frmCandidates.controls['password'].dirty || frmCandidates.controls['password'].touched)">
+            Please enter a valid password.
+            </mat-error>
+          </mat-form-field>
+          </div>
+          <div class="col-md-6">
+          <mat-form-field class="w-100">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" formControlName="confirmpassword" placeholder="Confirm Password" />
+            <mat-error *ngIf="frmCandidates.controls['confirmpassword'].invalid && (frmCandidates.controls['confirmpassword'].dirty || frmCandidates.controls['confirmpassword'].touched)">
+            Passwords do not match.
+            </mat-error>
+          </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-md-6">
+          <mat-form-field class="w-100">
+            <mat-label>First Name</mat-label>
+            <input matInput type="text" formControlName="firstName" placeholder="Enter first name" />
+            <mat-error *ngIf="frmCandidates.controls['firstName'].invalid && frmCandidates.controls['firstName'].touched">
+            Please enter your first name.
+            </mat-error>
+          </mat-form-field>
+          </div>
+          <div class="col-md-6">
+          <mat-form-field class="w-100">
+            <mat-label>Last Name</mat-label>
+            <input matInput type="text" formControlName="lastName" placeholder="Enter last name" />
+            <mat-error *ngIf="frmCandidates.controls['lastName'].invalid && frmCandidates.controls['lastName'].touched">
+            Please enter your last name.
+            </mat-error>
+          </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-md-4">
+          <mat-form-field class="w-100">
+            <mat-label>Mobile Number</mat-label>
+            <input matInput type="tel" formControlName="mobileNo" placeholder="Enter mobile number" />
+            <mat-error *ngIf="frmCandidates.controls['mobileNo'].invalid && frmCandidates.controls['mobileNo'].touched">
+            Please enter a valid mobile number.
+            </mat-error>
+          </mat-form-field>
+          </div>
+          <div class="col-md-4">
+          <mat-form-field class="w-100">
+            <mat-label>Branch Name</mat-label>
+            <input matInput type="text" formControlName="branchName" placeholder="Enter branch name" />
+            <mat-error *ngIf="frmCandidates.controls['branchName'].invalid && frmCandidates.controls['branchName'].touched">
+            Please enter your branch name.
+            </mat-error>
+          </mat-form-field>
+          </div>
+
+          <div  class="col-md-4">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Start Time</mat-label>
+            <input matInput formControlName="batchTime" [ngxTimepicker]="startTimePicker" readonly>
+            <ngx-material-timepicker #startTimePicker></ngx-material-timepicker>
+            <mat-error *ngIf="frmCandidates.get('batchTime')?.invalid && frmCandidates.get('batchTime')?.touched">
+            Please select a start time.
+            </mat-error>
+          </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-md-4">
+          <mat-form-field class="w-100">
+            <mat-label>Country</mat-label>
+            <input matInput type="text" formControlName="country" placeholder="Enter country" />
+            <mat-error *ngIf="frmCandidates.controls['country'].invalid && frmCandidates.controls['country'].touched">
+            Please enter your country.
+            </mat-error>
+          </mat-form-field>
+          </div>
+          <div class="col-md-4">
+          <mat-form-field class="w-100">
+            <mat-label>State</mat-label>
+            <input matInput type="text" formControlName="state" placeholder="Enter state" />
+            <mat-error *ngIf="frmCandidates.controls['state'].invalid && frmCandidates.controls['state'].touched">
+            Please enter your state.
+            </mat-error>
+          </mat-form-field>
+          </div>
+          <div class="col-md-4">
+          <mat-form-field class="w-100">
+            <mat-label>City</mat-label>
+            <input matInput type="text" formControlName="city" placeholder="Enter city" />
+            <mat-error *ngIf="frmCandidates.controls['city'].invalid && frmCandidates.controls['city'].touched">
+            Please enter your city.
+            </mat-error>
+          </mat-form-field>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <mat-form-field class="w-100">
+          <mat-label>Address</mat-label>
+          <textarea matInput formControlName="address" rows="1" placeholder="Enter full address"></textarea>
+          <mat-error *ngIf="frmCandidates.controls['address'].invalid && frmCandidates.controls['address'].touched">
+            Please enter your full address.
+          </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="mb-3">
+          <mat-checkbox formControlName="terms">
+              I agree to the terms and conditions
+          </mat-checkbox>
+          <mat-error *ngIf="frmCandidates.controls['terms'].invalid && frmCandidates.controls['terms'].touched">
+              You must agree to the terms and conditions.
+          </mat-error>
+      </div> 
+
+        <div class="d-flex justify-content-end p-2">
+          <button mat-raised-button color="primary" type="submit" class="me-2" [disabled]="frmCandidates.invalid">Register</button>
+          <button mat-raised-button color="warn" type="button" (click)="frmCandidates.reset()">Reset</button>
+        </div>
+        </form>
+      </mat-card-content>
+      </mat-card>
+    </div>
+    </div>
+  </div>
+
+
+  

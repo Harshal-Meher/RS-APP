@@ -1,0 +1,1704 @@
+{
+  "courses": [
+    {
+      "id": "7192",
+      "courseName": "Angular",
+      "courseTypeId": "Professional Course",
+      "courseSubTypeId": "Intermediate Course",
+      "coursePrice": 45000,
+      "courseDiscount": 39999,
+      "courseLink": "https://angular.dev/",
+      "courseDescription": "Angular JS",
+      "courseStartDate": "2025-03-30T18:30:00.000Z",
+      "courseEndDate": "2025-06-10T18:30:00.000Z",
+      "courseStartTime": "05:09",
+      "courseEndTime": "15:05",
+      "isActive": true
+    },
+    {
+      "id": "6f34",
+      "courseTypeId": "Professional Course",
+      "courseSubTypeId": "Intermediate Course",
+      "courseName": "Python",
+      "courseDescription": "Learn Python programming for web development and data science.",
+      "courseLink": "https://www.python.org/",
+      "coursePrice": 15000,
+      "courseDiscount": 13000,
+      "courseStartDate": "2025-03-17T18:30:00.000Z",
+      "courseEndDate": "2025-04-23T18:30:00.000Z",
+      "courseStartTime": "10:00 AM",
+      "courseEndTime": "8:20 AM",
+      "isActive": true
+    },
+    {
+      "id": "67fb",
+      "courseTypeId": "Professional Course",
+      "courseSubTypeId": "Advanced Intermediate Course",
+      "courseName": "Machine Learning",
+      "courseDescription": "Machine learning is a subset of Artificial Intelligence (AI) that enables computers to learn from data and make predictions without being explicitly programmed. If you're new to this field, this tutorial will provide a comprehensive understanding of machine learning, its types, algorithms, tools, and practical applications.",
+      "courseLink": "https://www.geeksforgeeks.org/machine-learning/",
+      "coursePrice": 45599,
+      "courseDiscount": 39999,
+      "courseStartDate": "2025-03-27T18:30:00.000Z",
+      "courseEndDate": "2025-05-30T18:30:00.000Z",
+      "courseStartTime": "7:00 AM",
+      "courseEndTime": "3:00 AM",
+      "isActive": true
+    },
+    {
+      "id": "3e05",
+      "courseName": "JS",
+      "courseTypeId": "Crash Course",
+      "courseSubTypeId": "Intermediate Course",
+      "coursePrice": 15000,
+      "courseDiscount": 13998,
+      "courseLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "courseDescription": "JavaScript development",
+      "courseStartDate": "2025-03-28T18:30:00.000Z",
+      "courseEndDate": "2025-04-17T18:30:00.000Z",
+      "courseStartTime": "11:11",
+      "courseEndTime": "19:07",
+      "isActive": true
+    },
+    {
+      "id": "b36b",
+      "courseName": "Data Science",
+      "courseTypeId": "Professional Course",
+      "courseSubTypeId": "Expert Course",
+      "coursePrice": 75000,
+      "courseDiscount": 49999,
+      "courseLink": "https://www.w3schools.com/datascience/",
+      "courseDescription": "Comprehensive data science course covering statistics, machine learning, and data visualization.",
+      "courseStartDate": "2025-02-28T18:30:00.000Z",
+      "courseEndDate": "2025-03-30T18:30:00.000Z",
+      "courseStartTime": "12:00 AM",
+      "courseEndTime": "6:00 AM",
+      "isActive": true
+    },
+    {
+      "id": "46db",
+      "courseTypeId": "Professional Course",
+      "courseSubTypeId": "Advanced Intermediate Course",
+      "courseName": "Machine Learning",
+      "courseDescription": "Each Machine Learning Crash Course module is self-contained, so if you have prior experience in machine learning, you can skip directly to the topics you want to learn. If you're new to machine learning, we recommend completing modules in the order below.",
+      "courseLink": "https://developers.google.com/machine-learning/crash-course",
+      "coursePrice": 59000,
+      "courseDiscount": 49999,
+      "courseStartDate": "2025-02-28T18:30:00.000Z",
+      "courseEndDate": "2025-06-29T18:30:00.000Z",
+      "courseStartTime": "12:00 AM",
+      "courseEndTime": "9:45 AM",
+      "isActive": true
+    },
+    {
+      "id": "8a9f",
+      "courseName": "React",
+      "courseTypeId": "Professional Course",
+      "courseSubTypeId": "Intermediate Course",
+      "coursePrice": 40000,
+      "courseDiscount": 34999,
+      "courseLink": "https://react.dev/",
+      "courseDescription": "Learn React for building modern web applications.",
+      "courseStartDate": "2025-04-01T18:30:00.000Z",
+      "courseEndDate": "2025-06-01T18:30:00.000Z",
+      "courseStartTime": "9:00 AM",
+      "courseEndTime": "5:00 PM",
+      "isActive": true
+    },
+    {
+      "id": "9b2c",
+      "courseName": "DevOps",
+      "courseTypeId": "Professional Course",
+      "courseSubTypeId": "Expert Course",
+      "coursePrice": 60000,
+      "courseDiscount": 54999,
+      "courseLink": "https://aws.amazon.com/devops/",
+      "courseDescription": "Master DevOps practices with tools like Docker, Kubernetes, and CI/CD pipelines.",
+      "courseStartDate": "2025-05-01T18:30:00.000Z",
+      "courseEndDate": "2025-07-15T18:30:00.000Z",
+      "courseStartTime": "10:00 AM",
+      "courseEndTime": "6:00 PM",
+      "isActive": true
+    }
+  ],
+  "company": [
+    {
+      "id": "12a2",
+      "email": "abhisheksonwane355@gmail.com",
+      "password": "",
+      "confirmPassword": "",
+      "industryType": "Manufacturing",
+      "companyType": "NGO",
+      "address": "Plot no 18, Pawanputra Nagar, Umred Road, Dighori",
+      "country": "India",
+      "state": "Maharashtra",
+      "city": "Nagpur",
+      "pinCode": "440034",
+      "contactNumber": "7845123690",
+      "contactPerson": "Sanjay",
+      "terms": true,
+      "aboutcompany": {
+        "companyName": "Hexaare",
+        "website": "www.hexaware.com",
+        "companySize": "11-50",
+        "yearEstablished": 2020,
+        "numberOfEmployees": 100,
+        "socialMediaLinks": "www.hexaware.com/social",
+        "faxNumber": "FAX741258",
+        "gstNumber": "GST123456789",
+        "companyDescription": "Engineering solutions for manufacturing industries."
+      },
+      "previouscompany": [
+        {
+          "companyName": "Hexaware",
+          "designation": "SDE",
+          "startDate": "2022",
+          "endDate": "2025",
+          "description": "Software development"
+        }
+      ]
+    },
+    {
+      "id": "1506",
+      "email": "User@gmail.com",
+      "password": "zxcvbnm",
+      "confirmpassword": "zxcvbnm",
+      "industryType": "Manufacturing",
+      "companyType": "private",
+      "address": "Plot no 18, Pawanputra Nagar, Umred Road, Dighori",
+      "country": "India",
+      "state": "Maharashtra",
+      "city": "Nagpur",
+      "pinCode": "440034",
+      "contactNumber": "7894561230",
+      "contactPerson": "Abhishek Sanjay Sonwane",
+      "termsAndConditions": true,
+      "aboutcompany": {
+        "companyName": "HemVM",
+        "website": "www.hemvm.com",
+        "companySize": "51-200",
+        "yearEstablished": 2015,
+        "numberOfEmployees": 150,
+        "socialMediaLinks": "www.hemvm.com/social",
+        "faxNumber": "",
+        "gstNumber": "",
+        "companyDescription": "Manufacturing and IT solutions provider."
+      },
+      "previouscompany": [
+        {
+          "companyName": "Hexaware",
+          "designation": "DE1",
+          "startDate": "2020",
+          "endDate": "2025",
+          "description": "Data engineering"
+        }
+      ]
+    },
+    {
+      "id": "237d",
+      "email": "user@gmail.com",
+      "password": "zxcvbnm",
+      "confirmpassword": "zxcvbnm",
+      "industryType": "Manufacturing",
+      "companyType": "private",
+      "address": "Plot no 18, Pawanputra Nagar, Umred Road, Dighori",
+      "country": "India",
+      "state": "Maharashtra",
+      "city": "Nagpur",
+      "pinCode": "440034",
+      "contactNumber": "7894561230",
+      "contactPerson": "Abhishek Sanjay Sonwane",
+      "termsAndConditions": true,
+      "aboutcompany": {
+        "companyName": "Hexaware",
+        "website": "www.hexaware.com",
+        "companySize": "11-50",
+        "yearEstablished": 2025,
+        "numberOfEmployees": 10,
+        "socialMediaLinks": "www.hexaware.com/social",
+        "faxNumber": "FAX7412589",
+        "gstNumber": "GST741258963",
+        "companyDescription": "Technology consulting and services."
+      },
+      "previouscompany": [
+        {
+          "companyName": "Hexaware",
+          "designation": "SDE",
+          "startDate": "2020",
+          "endDate": "2025",
+          "description": "Software development"
+        },
+        {
+          "companyName": "IBM",
+          "designation": "SDE",
+          "startDate": "2018",
+          "endDate": "2020",
+          "description": "Front-end development"
+        }
+      ]
+    },
+    {
+      "id": "2e6f",
+      "email": "abhisheksonwane355@gmail.com",
+      "password": "zxcvbnm",
+      "confirmpassword": "zxcvbnm",
+      "industryType": "Manufacturing",
+      "companyType": "NGO",
+      "address": "Plot no 18, Pawanputra Nagar, Umred Road, Dighori",
+      "country": "India",
+      "state": "Maharashtra",
+      "city": "Nagpur",
+      "pinCode": "440035",
+      "contactNumber": "7845961230",
+      "contactPerson": "Abhishek S Sonwane",
+      "termsAndConditions": true,
+      "aboutcompany": {
+        "companyName": "TCS Company",
+        "website": "www.tcs.com",
+        "companySize": "51-200",
+        "yearEstablished": 1986,
+        "numberOfEmployees": 12505,
+        "socialMediaLinks": "www.tcs.com/social",
+        "faxNumber": "FAX5451515TCS",
+        "gstNumber": "GST4115252",
+        "companyDescription": "Services provider related to IT."
+      },
+      "previouscompany": [
+        {
+          "companyName": "Type1",
+          "designation": "SDE",
+          "startDate": "2019",
+          "endDate": "2021",
+          "description": "Developer"
+        },
+        {
+          "companyName": "Type2",
+          "designation": "SDE1",
+          "startDate": "2022",
+          "endDate": "2025",
+          "description": "Full stack development"
+        }
+      ]
+    },
+    {
+      "id": "4c7e",
+      "email": "contact@infosys.com",
+      "password": "infosys123",
+      "confirmpassword": "infosys123",
+      "industryType": "IT",
+      "companyType": "Private",
+      "address": "Electronic City, Bangalore",
+      "country": "India",
+      "state": "Karnataka",
+      "city": "Bangalore",
+      "pinCode": "560100",
+      "contactNumber": "9876543210",
+      "contactPerson": "Ravi Kumar",
+      "termsAndConditions": true,
+      "aboutcompany": {
+        "companyName": "Infosys",
+        "website": "www.infosys.com",
+        "companySize": "1000+",
+        "yearEstablished": 1981,
+        "numberOfEmployees": 250000,
+        "socialMediaLinks": "www.infosys.com/social",
+        "faxNumber": "FAX987654",
+        "gstNumber": "GST987654321",
+        "companyDescription": "Global leader in IT services and consulting."
+      },
+      "previouscompany": [
+        {
+          "companyName": "Wipro",
+          "designation": "Senior Developer",
+          "startDate": "2015",
+          "endDate": "2018",
+          "description": "Led development projects"
+        }
+      ]
+    },
+    {
+      "id": "5d8f",
+      "email": "hr@wipro.com",
+      "password": "wipro456",
+      "confirmpassword": "wipro456",
+      "industryType": "IT",
+      "companyType": "Private",
+      "address": "Sarjapur Road, Bangalore",
+      "country": "India",
+      "state": "Karnataka",
+      "city": "Bangalore",
+      "pinCode": "560035",
+      "contactNumber": "9123456789",
+      "contactPerson": "Priya Sharma",
+      "termsAndConditions": true,
+      "aboutcompany": {
+        "companyName": "Wipro",
+        "website": "www.wipro.com",
+        "companySize": "1000+",
+        "yearEstablished": 1945,
+        "numberOfEmployees": 180000,
+        "socialMediaLinks": "www.wipro.com/social",
+        "faxNumber": "FAX123456",
+        "gstNumber": "GST1234567890",
+        "companyDescription": "IT services, consulting, and business solutions."
+      },
+      "previouscompany": [
+        {
+          "companyName": "Cognizant",
+          "designation": "Tech Lead",
+          "startDate": "2017",
+          "endDate": "2020",
+          "description": "Managed cloud solutions"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "id": "1cf9",
+      "username": "Harshal29",
+      "email": "Harshal@123Gmail.com",
+      "password": "Harshal@123",
+      "confirmpassword": "Harshal@123",
+      "firstName": "Harshal",
+      "lastName": "Meher",
+      "mobileNo": "9834996139",
+      "branchName": "Nagpur",
+      "batchTime": "12:00 AM",
+      "country": "India",
+      "state": "Maharashtra",
+      "city": "Pune",
+      "address": "Nagpur\n24 Surbhi Nagar",
+      "terms": true
+    },
+    {
+      "id": "726b",
+      "username": "Ronney",
+      "email": "Ronney@123gnail.com",
+      "password": "ronney",
+      "confirmpassword": "ronney",
+      "firstName": "Harshal",
+      "lastName": "Meher",
+      "mobileNo": "9834996139",
+      "branchName": "Nagpur",
+      "batchTime": "12:00 AM",
+      "country": "India",
+      "state": "Maharashtra",
+      "city": "Nagpur",
+      "address": "Mumbai\n25 Surbhi Nagar",
+      "terms": true
+    },
+    {
+      "id": "a1b2",
+      "username": "Priya88",
+      "email": "priya88@gmail.com",
+      "password": "priya@123",
+      "confirmpassword": "priya@123",
+      "firstName": "Priya",
+      "lastName": "Sharma",
+      "mobileNo": "9876543210",
+      "branchName": "Pune",
+      "batchTime": "10:00 AM",
+      "country": "India",
+      "state": "Maharashtra",
+      "city": "Pune",
+      "address": "Pune\n12 Viman Nagar",
+      "terms": true
+    },
+    {
+      "id": "b2c3",
+      "username": "Rahul45",
+      "email": "rahul45@gmail.com",
+      "password": "rahul@456",
+      "confirmpassword": "rahul@456",
+      "firstName": "Rahul",
+      "lastName": "Patil",
+      "mobileNo": "9123456789",
+      "branchName": "Mumbai",
+      "batchTime": "2:00 PM",
+      "country": "India",
+      "state": "Maharashtra",
+      "city": "Mumbai",
+      "address": "Mumbai\n15 Bandra West",
+      "terms": true
+    }
+  ],
+  "jobs": [
+    {
+      "companyName": "TCS",
+      "jobTitle": "Full Stack Java Developer",
+      "jobLocation": "Nagpur",
+      "employmentType": "Full-time",
+      "jobDescription": "Full Stack Java Developer",
+      "applicationMethod": "Offline",
+      "notificationEmail": "Harshal@123Gmail.com",
+      "isAuthorizedToWork": true,
+      "requiresSponsorship": true,
+      "referralSource": "Google",
+      "id": "ae0d"
+    },
+    {
+      "companyName": "HCL",
+      "jobTitle": "Full Stack Java Developer",
+      "jobLocation": "Nagpur",
+      "employmentType": "Full-time",
+      "jobDescription": "Full Stack Java developer",
+      "applicationMethod": "LinkedIn",
+      "notificationEmail": "meherharshal924@gmail.com",
+      "isAuthorizedToWork": true,
+      "requiresSponsorship": true,
+      "referralSource": "Google",
+      "isActive": true,
+      "id": "93b5"
+    },
+    {
+      "id": "90c5",
+      "companyName": "Wipro",
+      "jobTitle": "Python Developer",
+      "jobLocation": "Nashik",
+      "employmentType": "Part-time",
+      "jobDescription": "Python is the most used language in top companies such as Intel, IBM, NASA, Pixar, Netflix, Facebook, JP Morgan Chase, Spotify and many more because of its robust performance.",
+      "applicationMethod": "LinkedIn",
+      "notificationEmail": "Ronney@123gnail.com",
+      "isAuthorizedToWork": true,
+      "requiresSponsorship": true,
+      "referralSource": "LinkedIn",
+      "isActive": true
+    },
+    {
+      "id": "c6d7",
+      "companyName": "Infosys",
+      "jobTitle": "Cloud Engineer",
+      "jobLocation": "Bangalore",
+      "employmentType": "Full-time",
+      "jobDescription": "Design and manage cloud-based infrastructure using AWS.",
+      "applicationMethod": "Online",
+      "notificationEmail": "careers@infosys.com",
+      "isAuthorizedToWork": true,
+      "requiresSponsorship": false,
+      "referralSource": "Company Website",
+      "isActive": true
+    },
+    {
+      "id": "d7e8",
+      "companyName": "Cognizant",
+      "jobTitle": "Data Analyst",
+      "jobLocation": "Pune",
+      "employmentType": "Full-time",
+      "jobDescription": "Analyze large datasets to provide business insights.",
+      "applicationMethod": "LinkedIn",
+      "notificationEmail": "jobs@cognizant.com",
+      "isAuthorizedToWork": true,
+      "requiresSponsorship": false,
+      "referralSource": "LinkedIn",
+      "isActive": true
+    },
+    {
+      "id": "e8f9",
+      "companyName": "Accenture",
+      "jobTitle": "DevOps Engineer",
+      "jobLocation": "Mumbai",
+      "employmentType": "Full-time",
+      "jobDescription": "Implement CI/CD pipelines and manage containerized environments.",
+      "applicationMethod": "Online",
+      "notificationEmail": "careers@accenture.com",
+      "isAuthorizedToWork": true,
+      "requiresSponsorship": false,
+      "referralSource": "Company Website",
+      "isActive": true
+    },
+    {
+      "id": "f9g0",
+      "companyName": "Tech Mahindra",
+      "jobTitle": "Frontend Developer",
+      "jobLocation": "Hyderabad",
+      "employmentType": "Full-time",
+      "jobDescription": "Develop responsive web applications using React and Angular.",
+      "applicationMethod": "LinkedIn",
+      "notificationEmail": "jobs@techmahindra.com",
+      "isAuthorizedToWork": true,
+      "requiresSponsorship": true,
+      "referralSource": "LinkedIn",
+      "isActive": true
+    },
+    {
+      "id": "g0h1",
+      "companyName": "Capgemini",
+      "jobTitle": "AI/ML Engineer",
+      "jobLocation": "Chennai",
+      "employmentType": "Full-time",
+      "jobDescription": "Build and deploy machine learning models for predictive analytics.",
+      "applicationMethod": "Online",
+      "notificationEmail": "careers@capgemini.com",
+      "isAuthorizedToWork": true,
+      "requiresSponsorship": false,
+      "referralSource": "Company Website",
+      "isActive": true
+    },
+    {
+      "id": "h1i2",
+      "companyName": "IBM",
+      "jobTitle": "Backend Developer",
+      "jobLocation": "Bangalore",
+      "employmentType": "Full-time",
+      "jobDescription": "Develop server-side applications using Node.js and Java.",
+      "applicationMethod": "LinkedIn",
+      "notificationEmail": "jobs@ibm.com",
+      "isAuthorizedToWork": true,
+      "requiresSponsorship": false,
+      "referralSource": "LinkedIn",
+      "isActive": true
+    },
+    {
+      "id": "i2j3",
+      "companyName": "Microsoft",
+      "jobTitle": "Software Engineer",
+      "jobLocation": "Hyderabad",
+      "employmentType": "Full-time",
+      "jobDescription": "Work on cloud-based solutions using Azure.",
+      "applicationMethod": "Online",
+      "notificationEmail": "careers@microsoft.com",
+      "isAuthorizedToWork": true,
+      "requiresSponsorship": false,
+      "referralSource": "Company Website",
+      "isActive": true
+    },
+    {
+      "id": "j3k4",
+      "companyName": "Deloitte",
+      "jobTitle": "Cybersecurity Analyst",
+      "jobLocation": "Mumbai",
+      "employmentType": "Full-time",
+      "jobDescription": "Implement security measures to protect IT infrastructure.",
+      "applicationMethod": "Online",
+      "notificationEmail": "jobs@deloitte.com",
+      "isAuthorizedToWork": true,
+      "requiresSponsorship": false,
+      "referralSource": "Company Website",
+      "isActive": true
+    },
+    {
+      "id": "k4l5",
+      "companyName": "L&T Infotech",
+      "jobTitle": "Database Administrator",
+      "jobLocation": "Pune",
+      "employmentType": "Full-time",
+      "jobDescription": "Manage and optimize SQL databases for enterprise applications.",
+      "applicationMethod": "LinkedIn",
+      "notificationEmail": "careers@ltinfotech.com",
+      "isAuthorizedToWork": true,
+      "requiresSponsorship": true,
+      "referralSource": "LinkedIn",
+      "isActive": true
+    },
+    {
+      "id": "l5m6",
+      "companyName": "Infosys",
+      "jobTitle": "UI/UX Designer",
+      "jobLocation": "Bangalore",
+      "employmentType": "Full-time",
+      "jobDescription": "Design user-friendly interfaces for web and mobile applications.",
+      "applicationMethod": "Online",
+      "notificationEmail": "design@infosys.com",
+      "isAuthorizedToWork": true,
+      "requiresSponsorship": false,
+      "referralSource": "Company Website",
+      "isActive": true
+    },
+    {
+      "id": "m6n7",
+      "companyName": "HCL",
+      "jobTitle": "QA Engineer",
+      "jobLocation": "Noida",
+      "employmentType": "Full-time",
+      "jobDescription": "Perform testing to ensure software quality and performance.",
+      "applicationMethod": "LinkedIn",
+      "notificationEmail": "qa@hcl.com",
+      "isAuthorizedToWork": true,
+      "requiresSponsorship": false,
+      "referralSource": "LinkedIn",
+      "isActive": true
+    },
+    {
+      "id": "n7o8",
+      "companyName": "Wipro",
+      "jobTitle": "Blockchain Developer",
+      "jobLocation": "Chennai",
+      "employmentType": "Full-time",
+      "jobDescription": "Develop decentralized applications using blockchain technology.",
+      "applicationMethod": "Online",
+      "notificationEmail": "blockchain@wipro.com",
+      "isAuthorizedToWork": true,
+      "requiresSponsorship": false,
+      "referralSource": "Company Website",
+      "isActive": true
+    }
+  ],
+  "packages": [
+    {
+      "id": "57b8",
+      "name": "S/W",
+      "packageType": "employer",
+      "title": "Software Development",
+      "benefits": "Software Developer High Packages, quick access",
+      "courseName": "Full Stack Java Developer",
+      "category": "Platinum",
+      "description": "Java, Angular Framework, MySQL",
+      "duration": "4",
+      "validity": "6",
+      "price": 75000,
+      "offerPrice": 69999,
+      "serviceCharges": 1200,
+      "resumeView": 500,
+      "messages": 1000,
+      "chat": "1000",
+      "renewal": "true",
+      "isActive": true
+    },
+    {
+      "id": "46ef",
+      "name": "Python Full Stack",
+      "packageType": "employer",
+      "title": "Learn Python Programming(py)",
+      "benefits": "Python Developer, Higher Packages, AI, ML",
+      "courseName": "Python",
+      "category": "Platinum",
+      "description": "Python is a popular programming language. Python can be used on a server to create web applications.",
+      "duration": "3",
+      "validity": "1",
+      "price": 25999,
+      "offerPrice": 19999,
+      "serviceCharges": 100,
+      "resumeView": 500,
+      "messages": 1000,
+      "chat": "1000",
+      "renewal": "true",
+      "isActive": true
+    },
+    {
+      "id": "j7k8",
+      "name": "Cloud Computing",
+      "packageType": "employer",
+      "title": "Cloud Infrastructure Training",
+      "benefits": "Cloud Engineer roles, AWS certification",
+      "courseName": "AWS Cloud Practitioner",
+      "category": "Gold",
+      "description": "Learn AWS cloud services and infrastructure management.",
+      "duration": "3",
+      "validity": "6",
+      "price": 45000,
+      "offerPrice": 39999,
+      "serviceCharges": 500,
+      "resumeView": 300,
+      "messages": 800,
+      "chat": "800",
+      "renewal": "true",
+      "isActive": true
+    },
+    {
+      "id": "k8l9",
+      "name": "Data Science",
+      "packageType": "employer",
+      "title": "Data Science Mastery",
+      "benefits": "Data Analyst and Scientist roles, high demand skills",
+      "courseName": "Data Science",
+      "category": "Platinum",
+      "description": "Master data analysis, machine learning, and visualization.",
+      "duration": "5",
+      "validity": "12",
+      "price": 80000,
+      "offerPrice": 74999,
+      "serviceCharges": 1500,
+      "resumeView": 600,
+      "messages": 1200,
+      "chat": "1200",
+      "renewal": "true",
+      "isActive": true
+    },
+    {
+      "id": "o8p9",
+      "name": "React Developer",
+      "packageType": "employer",
+      "title": "Frontend Development with React",
+      "benefits": "Frontend Developer roles, high demand",
+      "courseName": "React",
+      "category": "Gold",
+      "description": "Learn React for building modern web applications.",
+      "duration": "3",
+      "validity": "6",
+      "price": 40000,
+      "offerPrice": 34999,
+      "serviceCharges": 500,
+      "resumeView": 400,
+      "messages": 900,
+      "chat": "900",
+      "renewal": "true",
+      "isActive": true
+    },
+    {
+      "id": "p9q0",
+      "name": "DevOps",
+      "packageType": "employer",
+      "title": "DevOps Engineering",
+      "benefits": "DevOps Engineer roles, CI/CD expertise",
+      "courseName": "DevOps",
+      "category": "Platinum",
+      "description": "Master DevOps tools like Docker and Kubernetes.",
+      "duration": "4",
+      "validity": "6",
+      "price": 60000,
+      "offerPrice": 54999,
+      "serviceCharges": 1000,
+      "resumeView": 500,
+      "messages": 1000,
+      "chat": "1000",
+      "renewal": "true",
+      "isActive": true
+    },
+    {
+      "id": "q0r1",
+      "name": "Cybersecurity",
+      "packageType": "employer",
+      "title": "Cybersecurity Training",
+      "benefits": "Cybersecurity Analyst roles, secure systems",
+      "courseName": "Cybersecurity",
+      "category": "Gold",
+      "description": "Learn to protect IT infrastructure from cyber threats.",
+      "duration": "3",
+      "validity": "6",
+      "price": 50000,
+      "offerPrice": 44999,
+      "serviceCharges": 800,
+      "resumeView": 400,
+      "messages": 900,
+      "chat": "900",
+      "renewal": "true",
+      "isActive": true
+    },
+    {
+      "id": "r1s2",
+      "name": "AI/ML",
+      "packageType": "employer",
+      "title": "Artificial Intelligence Mastery",
+      "benefits": "AI/ML Engineer roles, cutting-edge technology",
+      "courseName": "Machine Learning",
+      "category": "Platinum",
+      "description": "Build and deploy machine learning models.",
+      "duration": "5",
+      "validity": "12",
+      "price": 85000,
+      "offerPrice": 79999,
+      "serviceCharges": 1500,
+      "resumeView": 600,
+      "messages": 1200,
+      "chat": "1200",
+      "renewal": "true",
+      "isActive": true
+    },
+    {
+      "id": "s2t3",
+      "name": "Backend Development",
+      "packageType": "employer",
+      "title": "Backend Development with Node.js",
+      "benefits": "Backend Developer roles, scalable systems",
+      "courseName": "Node.js",
+      "category": "Gold",
+      "description": "Learn to build server-side applications with Node.js.",
+      "duration": "3",
+      "validity": "6",
+      "price": 35000,
+      "offerPrice": 29999,
+      "serviceCharges": 500,
+      "resumeView": 300,
+      "messages": 800,
+      "chat": "800",
+      "renewal": "true",
+      "isActive": true
+    },
+    {
+      "id": "t3u4",
+      "name": "Database Management",
+      "packageType": "employer",
+      "title": "Database Administration",
+      "benefits": "DBA roles, optimize data systems",
+      "courseName": "SQL",
+      "category": "Silver",
+      "description": "Master SQL and NoSQL database management.",
+      "duration": "3",
+      "validity": "6",
+      "price": 30000,
+      "offerPrice": 25999,
+      "serviceCharges": 400,
+      "resumeView": 300,
+      "messages": 700,
+      "chat": "700",
+      "renewal": "true",
+      "isActive": true
+    },
+    {
+      "id": "u4v5",
+      "name": "UI/UX Design",
+      "packageType": "employer",
+      "title": "UI/UX Design Mastery",
+      "benefits": "UI/UX Designer roles, user-friendly interfaces",
+      "courseName": "UI/UX Design",
+      "category": "Gold",
+      "description": "Design intuitive interfaces for web and mobile apps.",
+      "duration": "3",
+      "validity": "6",
+      "price": 40000,
+      "offerPrice": 34999,
+      "serviceCharges": 600,
+      "resumeView": 400,
+      "messages": 900,
+      "chat": "900",
+      "renewal": "true",
+      "isActive": true
+    },
+    {
+      "id": "v5w6",
+      "name": "Blockchain",
+      "packageType": "employer",
+      "title": "Blockchain Development",
+      "benefits": "Blockchain Developer roles, decentralized apps",
+      "courseName": "Blockchain",
+      "category": "Platinum",
+      "description": "Learn to build decentralized applications.",
+      "duration": "4",
+      "validity": "6",
+      "price": 70000,
+      "offerPrice": 64999,
+      "serviceCharges": 1200,
+      "resumeView": 500,
+      "messages": 1000,
+      "chat": "1000",
+      "renewal": "true",
+      "isActive": true
+    },
+    {
+      "id": "w6x7",
+      "name": "Mobile Development",
+      "packageType": "employer",
+      "title": "Mobile App Development",
+      "benefits": "Mobile Developer roles, iOS and Android",
+      "courseName": "Flutter",
+      "category": "Gold",
+      "description": "Build cross-platform mobile apps with Flutter.",
+      "duration": "3",
+      "validity": "6",
+      "price": 45000,
+      "offerPrice": 39999,
+      "serviceCharges": 500,
+      "resumeView": 400,
+      "messages": 900,
+      "chat": "900",
+      "renewal": "true",
+      "isActive": true
+    },
+    {
+      "id": "x7y8",
+      "name": "QA Testing",
+      "packageType": "employer",
+      "title": "Quality Assurance Testing",
+      "benefits": "QA Engineer roles, ensure software quality",
+      "courseName": "Software Testing",
+      "category": "Silver",
+      "description": "Learn manual and automated testing techniques.",
+      "duration": "3",
+      "validity": "6",
+      "price": 25000,
+      "offerPrice": 21999,
+      "serviceCharges": 300,
+      "resumeView": 300,
+      "messages": 700,
+      "chat": "700",
+      "renewal": "true",
+      "isActive": true
+    },
+    {
+      "id": "y8z9",
+      "name": "Big Data",
+      "packageType": "employer",
+      "title": "Big Data Analytics",
+      "benefits": "Big Data Engineer roles, handle large datasets",
+      "courseName": "Big Data",
+      "category": "Platinum",
+      "description": "Master Hadoop, Spark, and big data technologies.",
+      "duration": "5",
+      "validity": "12",
+      "price": 90000,
+      "offerPrice": 84999,
+      "serviceCharges": 1500,
+      "resumeView": 600,
+      "messages": 1200,
+      "chat": "1200",
+      "renewal": "true",
+      "isActive": true
+    }
+  ],
+  "membership": [
+    {
+      "id": "ee75",
+      "membershipType": "Basic",
+      "name": "Basic Plan",
+      "price": 5000,
+      "duration": "6 months",
+      "accessLevel": "Standard",
+      "support": "Email Support",
+      "bonusContent": "Access to basic courses",
+      "startDate": "2025-01-01",
+      "description": "Entry-level membership for beginners."
+    },
+    {
+      "id": "3d37",
+      "membershipType": "Premium",
+      "name": "Premium Plan",
+      "price": 15000,
+      "duration": "12 months",
+      "accessLevel": "Advanced",
+      "support": "Priority Email Support",
+      "bonusContent": "Access to all courses and job postings",
+      "startDate": "2025-01-01",
+      "description": "Comprehensive membership for professionals."
+    },
+    {
+      "id": "f4g5",
+      "membershipType": "Pro",
+      "name": "Pro Plan",
+      "price": 25000,
+      "duration": "12 months",
+      "accessLevel": "Expert",
+      "support": "24/7 Support",
+      "bonusContent": "Exclusive webinars and mentorship",
+      "startDate": "2025-02-01",
+      "description": "Advanced membership with personalized support."
+    },
+    {
+      "id": "g5h6",
+      "membershipType": "Starter",
+      "name": "Starter Plan",
+      "price": 3000,
+      "duration": "3 months",
+      "accessLevel": "Basic",
+      "support": "Community Support",
+      "bonusContent": "Access to introductory courses",
+      "startDate": "2025-03-01",
+      "description": "Short-term membership for new learners."
+    }
+  ],
+
+  "mainSkills": [
+    {
+      "mainskillid": 1,
+      "name": "Open Source",
+      "isActive": "Y",
+      "id": "a260"
+    },
+    {
+      "mainskillid": 2,
+      "name": "dot Net",
+      "isActive": "Y",
+      "id": "0742"
+    },
+    {
+      "mainskillid": 3,
+      "name": "Cloud Computing",
+      "isActive": "Y",
+      "id": "e3f4"
+    },
+    {
+      "mainskillid": 4,
+      "name": "AI/ML",
+      "isActive": "Y",
+      "id": "f4g5"
+    }
+  ],
+  "skills": [
+    {
+      "id": "042a",
+      "skillSelect": "Java",
+      "isActive": true,
+      "skillLevel": "Intermediate",
+      "experienceYears": 2
+    },
+    {
+      "id": "6980",
+      "skillSelect": "Python",
+      "isActive": true,
+      "skillLevel": "Intermediate",
+      "experienceYears": 2
+    },
+    {
+      "id": "h5i6",
+      "skillSelect": "AWS",
+      "isActive": true,
+      "skillLevel": "Advanced",
+      "experienceYears": 3
+    },
+    {
+      "id": "i6j7",
+      "skillSelect": "React",
+      "isActive": true,
+      "skillLevel": "Beginner",
+      "experienceYears": 1
+    }
+  ],
+
+  "contactUs": [
+    {
+      "id": "9730",
+      "userName": "John Doe",
+      "email": "john.doe@gmail.com",
+      "mobileNo": "9876543210",
+      "enquiry": "General Inquiry",
+      "enquiryDetails": "Interested in course offerings"
+    },
+    {
+      "id": "c57e",
+      "userName": "Harshal Meher",
+      "email": "Harshal@123Gmail.com",
+      "mobileNo": "9834996139",
+      "enquiry": "Internship Join",
+      "enquiryDetails": "Full stack Developer"
+    },
+    {
+      "id": "dbc0",
+      "userName": "Ronney",
+      "email": "Ronney@123gnail.com",
+      "mobileNo": "9834996139",
+      "enquiry": "Course Join",
+      "enquiryDetails": "Java"
+    },
+    {
+      "id": "51e1",
+      "userName": "Harshal Meher",
+      "email": "Ronney@123gnail.com",
+      "mobileNo": "9834996139",
+      "enquiry": "Course Join",
+      "enquiryDetails": "Advanced Java"
+    },
+    {
+      "id": "5d04",
+      "userName": "Harshal Meher",
+      "email": "harshal@123",
+      "mobileNo": "9834996139",
+      "enquiry": "Course Fees",
+      "enquiryDetails": "Fee structure for Python course"
+    },
+    {
+      "id": "l9m0",
+      "userName": "Anita Singh",
+      "email": "anita.singh@gmail.com",
+      "mobileNo": "9123456789",
+      "enquiry": "Job Placement",
+      "enquiryDetails": "Details on job placement services"
+    },
+    {
+      "id": "m0n1",
+      "userName": "Vikram Rao",
+      "email": "vikram.rao@gmail.com",
+      "mobileNo": "9988776655",
+      "enquiry": "Course Join",
+      "enquiryDetails": "DevOps course details"
+    }
+  ],
+  "educational_details": [
+    {
+      "id": "n1o2",
+      "candidateId": "1cf9",
+      "degree": "B.Tech",
+      "fieldOfStudy": "Computer Science",
+      "institution": "Nagpur University",
+      "startYear": "2018",
+      "endYear": "2022",
+      "percentage": 85
+    },
+    {
+      "id": "o2p3",
+      "candidateId": "726b",
+      "degree": "B.Sc",
+      "fieldOfStudy": "Information Technology",
+      "institution": "Pune University",
+      "startYear": "2019",
+      "endYear": "2023",
+      "percentage": 78
+    }
+  ],
+  "professional_details": [
+    {
+      "id": "p3q4",
+      "candidateId": "1cf9",
+      "companyName": "Tech Mahindra",
+      "designation": "Junior Developer",
+      "startDate": "2022-06-01",
+      "endDate": "2025-01-01",
+      "description": "Developed web applications using Java and Angular."
+    },
+    {
+      "id": "q4r5",
+      "candidateId": "726b",
+      "companyName": "Capgemini",
+      "designation": "Software Engineer",
+      "startDate": "2023-01-01",
+      "endDate": "2025-03-01",
+      "description": "Worked on Python-based automation projects."
+    }
+  ],
+  "EmployerDetails": [
+    {
+      "id": "6930",
+      "email": "hr@techcorp.com",
+      "password": "tech123",
+      "confirmpassword": "tech123",
+      "industryType": "IT",
+      "companyType": "Private",
+      "address": "Hinjewadi, Pune",
+      "country": "India",
+      "state": "Maharashtra",
+      "city": "Pune",
+      "pinCode": "411057",
+      "contactNumber": "9876543210",
+      "contactPerson": "Amit Joshi",
+      "termsAndConditions": true,
+      "receivePromotions": true
+    },
+    {
+      "id": "3741",
+      "email": "Ronney@123gnail.com",
+      "password": "ronney",
+      "confirmpassword": "ronney",
+      "industryType": "IT",
+      "companyType": "Private",
+      "address": "Mumbai\n25 Surbhi Nagar",
+      "country": "India",
+      "state": "Maharashtra",
+      "city": "Nagpur",
+      "pinCode": "330034",
+      "contactNumber": "9834996139",
+      "contactPerson": "Ronney",
+      "termsAndConditions": true,
+      "receivePromotions": true
+    },
+    {
+      "id": "61d0",
+      "email": "Ronney@123gnail.com",
+      "password": "ronney",
+      "confirmpassword": "ronney",
+      "industryType": "IT",
+      "companyType": "Private",
+      "address": "Mumbai\n25 Surbhi Nagar",
+      "country": "India",
+      "state": "Maharashtra",
+      "city": "Nagpur",
+      "pinCode": "330034",
+      "contactNumber": "9834996139",
+      "contactPerson": "Harshal Meher",
+      "termsAndConditions": true,
+      "receivePromotions": true
+    },
+    {
+      "id": "ae06",
+      "email": "Harshal@123Gmail.com",
+      "password": "harshal",
+      "confirmpassword": "harshal",
+      "industryType": "IT",
+      "companyType": "Private",
+      "address": "Nagpur\n24 Surbhi Nagar",
+      "country": "India",
+      "state": "Maharashtra",
+      "city": "Nagpur",
+      "pinCode": "330034",
+      "contactNumber": "9834996139",
+      "contactPerson": "Harshal Dinesh Meher",
+      "termsAndConditions": true,
+      "receivePromotions": true
+    },
+    {
+      "id": "r5s6",
+      "email": "hr@accenture.com",
+      "password": "acc123",
+      "confirmpassword": "acc123",
+      "industryType": "IT",
+      "companyType": "Private",
+      "address": "Airoli, Navi Mumbai",
+      "country": "India",
+      "state": "Maharashtra",
+      "city": "Mumbai",
+      "pinCode": "400708",
+      "contactNumber": "9988776655",
+      "contactPerson": "Sneha Gupta",
+      "termsAndConditions": true,
+      "receivePromotions": true
+    },
+    {
+      "id": "s6t7",
+      "email": "careers@hcl.com",
+      "password": "hcl456",
+      "confirmpassword": "hcl456",
+      "industryType": "IT",
+      "companyType": "Private",
+      "address": "Noida Sector 62",
+      "country": "India",
+      "state": "Uttar Pradesh",
+      "city": "Noida",
+      "pinCode": "201301",
+      "contactNumber": "9876541230",
+      "contactPerson": "Vikas Sharma",
+      "termsAndConditions": true,
+      "receivePromotions": true
+    }
+  ],
+  "placed-candidates": [
+    {
+      "id": "45cc",
+      "candidateId": "1cf9",
+      "companyName": "TCS",
+      "jobTitle": "Full Stack Java Developer",
+      "placementDate": "2025-04-01",
+      "status": true
+    },
+    {
+      "id": "t7u8",
+      "candidateId": "726b",
+      "companyName": "HCL",
+      "jobTitle": "Python Developer",
+      "placementDate": "2025-05-01",
+      "status": true
+    },
+    {
+      "id": "u8v9",
+      "candidateId": "a1b2",
+      "companyName": "Infosys",
+      "jobTitle": "Cloud Engineer",
+      "placementDate": "2025-06-01",
+      "status": true
+    }
+  ],
+  "batch-timings": [
+    {
+      "id": "6f22",
+      "courseId": "7192",
+      "batchTime": "9:00 AM - 12:00 PM",
+      "days": "Mon-Fri",
+      "isActive": true
+    },
+    {
+      "id": "v9w0",
+      "courseId": "6f34",
+      "batchTime": "2:00 PM - 5:00 PM",
+      "days": "Mon-Wed-Fri",
+      "isActive": true
+    },
+    {
+      "id": "w0x1",
+      "courseId": "8a9f",
+      "batchTime": "6:00 PM - 9:00 PM",
+      "days": "Tue-Thu-Sat",
+      "isActive": true
+    }
+  ],
+  "courses-on-demand": [
+    {
+      "id": "8559",
+      "courseName": "Cybersecurity",
+      "requestCount": 10,
+      "status": "Pending"
+    },
+    {
+      "id": "x1y2",
+      "courseName": "Blockchain Development",
+      "requestCount": 8,
+      "status": "Approved"
+    },
+    {
+      "id": "y2z3",
+      "courseName": "UI/UX Design",
+      "requestCount": 12,
+      "status": "Pending"
+    }
+  ],
+  "premium-candidates": [
+    {
+      "id": "258e",
+      "employerName": "Infosys",
+      "candidateName": "Harshal Dinesh Meher",
+      "candidateEmail": "info29@gmail.com",
+      "candidatePhone": "9834996139",
+      "candidateRole": "Full Stack Java Developer",
+      "experience": 5,
+      "location": "Nagpur",
+      "selectedPackage": "gold",
+      "startDate": "2025-03-31T18:30:00.000Z",
+      "endDate": "2025-04-29T18:30:00.000Z",
+      "status": true
+    },
+    {
+      "id": "z3a4",
+      "employerName": "Wipro",
+      "candidateName": "Priya Sharma",
+      "candidateEmail": "priya88@gmail.com",
+      "candidatePhone": "9876543210",
+      "candidateRole": "Data Analyst",
+      "experience": 3,
+      "location": "Pune",
+      "selectedPackage": "platinum",
+      "startDate": "2025-05-01T18:30:00.000Z",
+      "endDate": "2025-06-01T18:30:00.000Z",
+      "status": true
+    },
+    {
+      "id": "a4b5",
+      "employerName": "Cognizant",
+      "candidateName": "Rahul Patil",
+      "candidateEmail": "rahul45@gmail.com",
+      "candidatePhone": "9123456789",
+      "candidateRole": "Cloud Engineer",
+      "experience": 4,
+      "location": "Mumbai",
+      "selectedPackage": "gold",
+      "startDate": "2025-06-01T18:30:00.000Z",
+      "endDate": "2025-07-01T18:30:00.000Z",
+      "status": true
+    }
+  ],
+  "interviews": [
+    {
+      "id": "3366",
+      "candidateId": "1cf9",
+      "rounds": [
+        {
+          "feedback": "",
+          "status": "Clear",
+          "roundPercentage": 25,
+          "skipped": false,
+          "questions": []
+        },
+        {
+          "feedback": "j",
+          "status": "Clear",
+          "roundPercentage": 25,
+          "skipped": false,
+          "questions": []
+        },
+        {
+          "feedback": "",
+          "status": "Clear",
+          "roundPercentage": 25,
+          "skipped": false,
+          "questions": []
+        },
+        {
+          "feedback": "",
+          "status": "Clear",
+          "roundPercentage": 25,
+          "skipped": false,
+          "questions": []
+        }
+      ],
+      "totalScore": 100,
+      "selectionStatus": "Selected",
+      "status": "Submitted"
+    },
+    {
+      "id": "19f5",
+      "candidateId": "726b",
+      "rounds": [
+        {
+          "feedback": "",
+          "status": "Clear",
+          "roundPercentage": 25,
+          "skipped": false,
+          "questions": []
+        },
+        {
+          "feedback": "",
+          "status": "Clear",
+          "roundPercentage": 25,
+          "skipped": false,
+          "questions": []
+        },
+        {
+          "feedback": "",
+          "status": "Clear",
+          "roundPercentage": 25,
+          "skipped": false,
+          "questions": []
+        },
+        {
+          "feedback": "hhhhh",
+          "status": "Clear",
+          "roundPercentage": 25,
+          "skipped": false,
+          "questions": []
+        }
+      ],
+      "totalScore": 100,
+      "selectionStatus": "Selected",
+      "status": "Submitted"
+    },
+    {
+      "id": "6a30",
+      "candidateId": "1cf9",
+      "rounds": [
+        {
+          "feedback": "",
+          "status": "Clear",
+          "roundPercentage": 13,
+          "skipped": false,
+          "questions": [
+            {
+              "question": "qqq",
+              "description": "aqq",
+              "questionType": "Descriptive",
+              "elementType": "textarea",
+              "objective": null,
+              "option1": "",
+              "option2": "",
+              "option3": "",
+              "option4": "",
+              "options": [],
+              "correctAnswer": "",
+              "expectedAnswer": "qq",
+              "answer": "qq",
+              "skipped": false,
+              "submitted": true,
+              "timeLeft": 18,
+              "marks": 12.5
+            },
+            {
+              "question": "eee",
+              "description": "ee",
+              "questionType": "Descriptive",
+              "elementType": "textarea",
+              "objective": null,
+              "option1": "",
+              "option2": "",
+              "option3": "",
+              "option4": "",
+              "options": [],
+              "correctAnswer": "",
+              "expectedAnswer": "e",
+              "answer": "",
+              "skipped": true,
+              "submitted": false,
+              "timeLeft": 0,
+              "marks": 0
+            }
+          ]
+        },
+        {
+          "feedback": "",
+          "status": "Clear",
+          "roundPercentage": 25,
+          "skipped": false,
+          "questions": []
+        },
+        {
+          "feedback": "",
+          "status": "Clear",
+          "roundPercentage": 25,
+          "skipped": false,
+          "questions": []
+        },
+        {
+          "feedback": "",
+          "status": "Clear",
+          "roundPercentage": 25,
+          "skipped": false,
+          "questions": []
+        }
+      ],
+      "totalScore": 88,
+      "selectionStatus": "Selected",
+      "status": "Submitted"
+    },
+    {
+      "id": "b05a",
+      "candidateId": "1cf9",
+      "rounds": [
+        {
+          "feedback": "",
+          "status": "Clear",
+          "roundPercentage": 25,
+          "skipped": false,
+          "questions": [
+            {
+              "question": "qqq",
+              "description": "qq",
+              "questionType": "Descriptive",
+              "elementType": "textarea",
+              "objective": null,
+              "option1": "",
+              "option2": "",
+              "option3": "",
+              "option4": "",
+              "options": [],
+              "correctAnswer": "",
+              "expectedAnswer": "q",
+              "answer": "q",
+              "skipped": false,
+              "submitted": true,
+              "marks": 12.5
+            },
+            {
+              "question": "aaaaa",
+              "description": "aa",
+              "questionType": "Descriptive",
+              "elementType": "textarea",
+              "objective": null,
+              "option1": "",
+              "option2": "",
+              "option3": "",
+              "option4": "",
+              "options": [],
+              "correctAnswer": "",
+              "expectedAnswer": "a",
+              "answer": "a",
+              "skipped": false,
+              "submitted": true,
+              "marks": 12.5
+            }
+          ]
+        },
+        {
+          "feedback": "",
+          "status": "Clear",
+          "roundPercentage": 25,
+          "skipped": false,
+          "questions": []
+        },
+        {
+          "feedback": "qqq",
+          "status": "Clear",
+          "roundPercentage": 25,
+          "skipped": false,
+          "questions": []
+        },
+        {
+          "feedback": "ssssss",
+          "status": "Clear",
+          "roundPercentage": 25,
+          "skipped": false,
+          "questions": []
+        }
+      ],
+      "totalScore": 100,
+      "selectionStatus": "Selected",
+      "status": "Submitted"
+    },
+    {
+      "id": "c6d7",
+      "candidateId": "a1b2",
+      "rounds": [
+        {
+          "feedback": "Good technical knowledge",
+          "status": "Clear",
+          "roundPercentage": 20,
+          "skipped": false,
+          "questions": [
+            {
+              "question": "What is AWS Lambda?",
+              "description": "Explain serverless computing",
+              "questionType": "Descriptive",
+              "elementType": "textarea",
+              "objective": null,
+              "option1": "",
+              "option2": "",
+              "option3": "",
+              "option4": "",
+              "options": [],
+              "correctAnswer": "",
+              "expectedAnswer": "Serverless function",
+              "answer": "Serverless function",
+              "skipped": false,
+              "submitted": true,
+              "timeLeft": 15,
+              "marks": 10
+            }
+          ]
+        },
+        {
+          "feedback": "",
+          "status": "Clear",
+          "roundPercentage": 20,
+          "skipped": false,
+          "questions": []
+        },
+        {
+          "feedback": "",
+          "status": "Clear",
+          "roundPercentage": 30,
+          "skipped": false,
+          "questions": []
+        },
+        {
+          "feedback": "Strong communication",
+          "status": "Clear",
+          "roundPercentage": 30,
+          "skipped": false,
+          "questions": []
+        }
+      ],
+      "totalScore": 90,
+      "selectionStatus": "Selected",
+      "status": "Submitted"
+    },
+    {
+      "id": "d7e8",
+      "candidateId": "b2c3",
+      "rounds": [
+        {
+          "feedback": "Needs improvement in coding",
+          "status": "Clear",
+          "roundPercentage": 15,
+          "skipped": false,
+          "questions": [
+            {
+              "question": "Write a Python script",
+              "description": "Script to process data",
+              "questionType": "Descriptive",
+              "elementType": "textarea",
+              "objective": null,
+              "option1": "",
+              "option2": "",
+              "option3": "",
+              "option4": "",
+              "options": [],
+              "correctAnswer": "",
+              "expectedAnswer": "Python script",
+              "answer": "Partial script",
+              "skipped": false,
+              "submitted": true,
+              "timeLeft": 10,
+              "marks": 8
+            }
+          ]
+        },
+        {
+          "feedback": "",
+          "status": "Clear",
+          "roundPercentage": 25,
+          "skipped": false,
+          "questions": []
+        },
+        {
+          "feedback": "",
+          "status": "Clear",
+          "roundPercentage": 25,
+          "skipped": false,
+          "questions": []
+        },
+        {
+          "feedback": "",
+          "status": "Clear",
+          "roundPercentage": 25,
+          "skipped": false,
+          "questions": []
+        }
+      ],
+      "totalScore": 85,
+      "selectionStatus": "Selected",
+      "status": "Submitted"
+    }
+  ]
+}

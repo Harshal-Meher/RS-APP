@@ -1,0 +1,266 @@
+<div class="col-md-12 mt-5">
+  <app-filter></app-filter>
+  <app-header></app-header>
+  <!-- <app-industry></app-industry> -->
+  <!-- <app-about></app-about> -->
+  <!-- photos -->
+<div class="container gallery-showcase py-5">
+  <div class="row justify-content-center g-4">
+    <div class="col-12 text-center mb-5">
+      <h2 class="gallery-title">Featured Content</h2>
+      <p class="gallery-subtitle text-muted">Discover our latest updates and highlights</p>
+    </div>
+    <ng-container *ngFor="let i of photos">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="gallery-item position-relative overflow-hidden">
+          <img [src]="i.img" class="gallery-img w-100" alt="Gallery item">
+          <div class="gallery-overlay">
+            <div class="gallery-content text-white p-4">
+              <h5 class="gallery-item-title mb-2">{{ i.title }}</h5>
+              <p class="gallery-item-text mb-3">{{ i.description }}</p>
+              <small class="gallery-item-meta">{{ i.meta }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<!-- <app-notification-board></app-notification-board> -->
+
+
+  <!-- Cards Section -->
+  <div class="container py-5 developer-section">
+    <div class="row g-4">
+         <div class="col-12 text-center mb-5">
+             <h2 class="highlights-title fs-3 text-dark-emphasis fw-bolder">Software Course Highlights</h2>
+            <p class="highlights-subtitle text-muted">What sets us apart in development excellence</p>
+        </div>
+
+        <!-- Front End Angular Card -->
+        <div class="col-12 col-md-6">
+            <div class="card developer-card h-100 shadow-sm border-0">
+                <div class="card-body d-flex align-items-center">
+                    <div class="icon-container me-4">
+                        <img src="/assets/Images/icon_designers_color_big_f0b891.png" 
+                             alt="Angular Developer Icon" 
+                             class="img-fluid developer-icon">
+                    </div>
+                    <div class="content-container">
+                        <h5 class="card-title developer-title mb-3">Front End Angular Developers</h5>
+                        <p class="card-text developer-text mb-4">
+                            Our network consists of seasoned senior developers, software engineers, 
+                            coders, and architects with expertise across hundreds of technologies.
+                        </p>
+                        <div class="d-flex justify-content-end">
+                            <a href="/employer/register-employer" 
+                               class="btn developer-btn btn-grad text-white text-decoration-none">
+                                Hire Top Developer
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Full Stack Java Card -->
+        <div class="col-12 col-md-6">
+            <div class="card developer-card h-100 shadow-sm border-0">
+                <div class="card-body d-flex align-items-center">
+                    <div class="icon-container me-4">
+                        <img src="/assets/Images/icon_designers_color_big_f0b891.png" 
+                             alt="Java Developer Icon" 
+                             class="img-fluid developer-icon">
+                    </div>
+                    <div class="content-container">
+                        <h5 class="card-title developer-title mb-3">Full Stack Java Developers</h5>
+                        <p class="card-text developer-text mb-4">
+                            Our network consists of seasoned senior developers, software engineers, 
+                            coders, and architects with expertise across hundreds of technologies.
+                        </p>
+                        <div class="d-flex justify-content-end">
+                            <a href="/employer/register-employer" 
+                               class="btn developer-btn btn-grad text-white text-decoration-none">
+                                Hire Top Developer
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- React Developer Card -->
+        <div class="col-12 col-md-6">
+            <div class="card developer-card h-100 shadow-sm border-0">
+                <div class="card-body d-flex align-items-center">
+                    <div class="icon-container me-4">
+                        <img src="/assets/Images/icon_developers_color_big_89a07f.png" 
+                             alt="React Developer Icon" 
+                             class="img-fluid developer-icon">
+                    </div>
+                    <div class="content-container">
+                        <h5 class="card-title developer-title mb-3">React Developers</h5>
+                        <p class="card-text developer-text mb-4">
+                            Our network consists of seasoned senior developers, software engineers, 
+                            coders, and architects with expertise across hundreds of technologies.
+                        </p>
+                        <div class="d-flex justify-content-end">
+                            <a href="/employer/register-employer" 
+                               class="btn developer-btn btn-grad text-white text-decoration-none">
+                                Hire Top Developer
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHP Full Stack Card -->
+        <div class="col-12 col-md-6">
+            <div class="card developer-card h-100 shadow-sm border-0">
+                <div class="card-body d-flex align-items-center">
+                    <div class="icon-container me-4">
+                        <img src="/assets/Images/icon_developers_color_big_89a07f.png" 
+                             alt="PHP Developer Icon" 
+                             class="img-fluid developer-icon">
+                    </div>
+                    <div class="content-container">
+                        <h5 class="card-title developer-title mb-3">PHP Full Stack Developers</h5>
+                        <p class="card-text developer-text mb-4">
+                            Our network consists of seasoned senior developers, software engineers, 
+                            coders, and architects with expertise across hundreds of technologies.
+                        </p>
+                        <div class="d-flex justify-content-end">
+                            <a href="/employer/register-employer" 
+                               class="btn developer-btn btn-grad text-white text-decoration-none">
+                                Hire Top Developer
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  <!-- Our Strengths -->
+  <app-blogs></app-blogs>
+  <!-- company logos -->
+  <app-logos-slider></app-logos-slider>
+  
+
+<div class="container py-5 packages-section">
+    <div class="row justify-content-center g-4">
+        <!-- Software Starter Package -->
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 package-card">
+                <div class="card-body">
+                    <div class="form-check">
+                        <input type="radio" id="software-starter" class="form-check-input package-radio" name="pack">
+                        <label class="form-check-label w-100" for="software-starter">
+                            <h2 class="card-title package-title">Software Starter</h2>
+                            <p class="card-text package-price">
+                                Starting at <strong>25,000/-</strong>
+                            </p>
+                            <p class="package-desc">
+                                Ideal for individual developers or small teams starting software projects.
+                            </p>
+                            <ul class="list-group list-group-flush feature-list">
+                                <li class="list-group-item active">Project Management</li>
+                                <li class="list-group-item active">Code Repository Access</li>
+                                <li class="list-group-item active">Basic API Integration</li>
+                                <li class="list-group-item">Team Collaboration Tools</li>
+                                <li class="list-group-item">Bug Tracking</li>
+                                <li class="list-group-item">5GB Cloud Storage</li>
+                            </ul>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+        <!-- Software Professional Package -->
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 package-card">
+                <div class="card-body">
+                    <div class="form-check">
+                        <input type="radio" id="software-pro" class="form-check-input package-radio" name="pack">
+                        <label class="form-check-label w-100" for="software-pro">
+                            <h2 class="card-title package-title">Software Professional</h2>
+                            <p class="card-text package-price">
+                                Starting at <strong>75,000/-</strong>
+                            </p>
+                            <p class="package-desc">
+                                Perfect for growing teams needing advanced software development tools.
+                            </p>
+                            <ul class="list-group list-group-flush feature-list">
+                                <li class="list-group-item active">Project Management</li>
+                                <li class="list-group-item active">Code Repository Access</li>
+                                <li class="list-group-item active">Advanced API Integration</li>
+                                <li class="list-group-item active">Team Collaboration Tools</li>
+                                <li class="list-group-item active">Bug Tracking</li>
+                                <li class="list-group-item">25GB Cloud Storage</li>
+                            </ul>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+  
+        <!-- Software Enterprise Package -->
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 package-card">
+                <div class="card-body">
+                    <div class="form-check">
+                        <input type="radio" id="software-enterprise" class="form-check-input package-radio" name="pack">
+                        <label class="form-check-label w-100" for="software-enterprise">
+                            <h2 class="card-title package-title">Software Enterprise</h2>
+                            <p class="card-text package-price">
+                                Starting at <strong>95,000/-</strong>
+                            </p>
+                            <p class="package-desc">
+                                Designed for large organizations with complex software needs.
+                            </p>
+                            <ul class="list-group list-group-flush feature-list">
+                                <li class="list-group-item active">Project Management</li>
+                                <li class="list-group-item active">Code Repository Access</li>
+                                <li class="list-group-item active">Advanced API Integration</li>
+                                <li class="list-group-item active">Team Collaboration Tools</li>
+                                <li class="list-group-item active">Bug Tracking</li>
+                                <li class="list-group-item active">Unlimited Cloud Storage</li>
+                                <li class="list-group-item active">Priority Support</li>
+                            </ul>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+        <!-- Button -->
+        <div class="col-12 text-center py-4 package-btn">
+            <a routerLink="/package" class="btn explore-packages-btn">Explore Packages</a>
+        </div>
+    </div>
+  </div>
+  
+<!-- sub-footer -->
+<app-sub-footer></app-sub-footer>
+  
+<!-- Footer -->
+<app-footer></app-footer>
+
+
+<!-- Scoller -->
+<div appScrollToTop
+class="d-flex justify-content-end p-4"
+class="scroll-button" 
+>
+<svg  xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+  <path
+  fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"/>
+</svg>
+
+</div>
+</div>

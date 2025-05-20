@@ -1,0 +1,128 @@
+<ngx-ui-loader *ngIf="isSubmitting" fgsColor="#345FF1" pbColor="#345FF1" fgsType="three-bounce" text="Loading..."></ngx-ui-loader>
+
+<div class="container-fluid mt-3">
+    <mat-card class="border shadow-lg">
+        <mat-card-content>
+            <div class="overflow-auto" style="max-height: 70vh; width:600px;">
+                <form [formGroup]="jobForm" (ngSubmit)="onSave()">
+                    <h2>
+                        <mat-card-title>Edit Job</mat-card-title>
+                        <hr>
+                    </h2>
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Company Name</mat-label>
+                                <input matInput formControlName="companyName" required>
+                                <mat-error *ngIf="jobForm.get('companyName')?.invalid">Company name is required</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Job Title</mat-label>
+                                <input matInput formControlName="jobTitle" required>
+                                <mat-error *ngIf="jobForm.get('jobTitle')?.invalid">Job title is required</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Location</mat-label>
+                                <input matInput formControlName="jobLocation" required>
+                                <mat-error *ngIf="jobForm.get('jobLocation')?.invalid">Location is required</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Employment Type</mat-label>
+                                <mat-select formControlName="employmentType" required>
+                                    <mat-option value="Full-time">Full-time</mat-option>
+                                    <mat-option value="Part-time">Part-time</mat-option>
+                                    <mat-option value="Contract">Contract</mat-option>
+                                    <mat-option value="Temporary">Temporary</mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="jobForm.get('employmentType')?.invalid">Employment type is required</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-12">
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Job Description</mat-label>
+                                <textarea matInput rows="2" formControlName="jobDescription" required></textarea>
+                                <mat-error *ngIf="jobForm.get('jobDescription')?.invalid">Description is required</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-12">
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Application Method</mat-label>
+                                <input matInput formControlName="applicationMethod" required>
+                                <mat-error *ngIf="jobForm.get('applicationMethod')?.invalid">Application Method is required</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-12">
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Email</mat-label>
+                                <input matInput type="email" formControlName="notificationEmail" required>
+                                <mat-error *ngIf="jobForm.get('notificationEmail')?.invalid">Valid email is required</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-12">
+                            <label>Screening Questions</label>
+                            <div class="d-block">
+                                <mat-checkbox formControlName="isAuthorizedToWork">Are you legally authorized to work in the United States?</mat-checkbox>
+                                <mat-checkbox formControlName="requiresSponsorship">Will you require sponsorship for employment visa status?</mat-checkbox>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>How did you hear about us?</mat-label>
+                                <mat-select formControlName="referralSource">
+                                    <mat-option value="LinkedIn">LinkedIn</mat-option>
+                                    <mat-option value="Google">Google</mat-option>
+                                    <mat-option value="Referral">Referral</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="row g-3 align-items-center">
+                            <div class="col-12 col-md-6">
+                              <mat-checkbox formControlName="isActive">Mark as Active</mat-checkbox>
+                              <mat-error *ngIf="jobForm.controls['isActive'].invalid && jobForm.controls['isActive'].touched">
+                                Chat option is required
+                            </mat-error>
+                            </div>
+                        </div>
+        
+                    
+                        <div class="d-flex justify-content-end gap-2 mt-3">
+                            <button mat-raised-button color="primary"
+                            (click)="onSave()"
+                            [disabled]="jobForm.invalid || isSubmitting"
+                            class="save-button d-flex align-items-center justify-content-center">
+                            
+                            <ng-container *ngIf="!isSubmitting; else loading">
+                              Save
+                            </ng-container>
+                        
+                            <ng-template #loading>
+                              <div class="d-flex align-items-center justify-content-center gap-2">
+                                <mat-spinner diameter="20"></mat-spinner>
+                                <span>Saving...</span>
+                              </div>
+                            </ng-template>
+                          </button>
+                                                      
+                          <button mat-stroked-button color="warn" type="button" (click)="onCancel()" [disabled]="isSubmitting">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

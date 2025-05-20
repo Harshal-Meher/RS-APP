@@ -1,0 +1,10 @@
+.user-card {
+    width: 400px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s;
+  }
+  
+  .user-card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  

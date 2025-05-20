@@ -1,0 +1,319 @@
+<div *ngIf="loading" class="text-center mt-3">
+  <mat-spinner diameter="50"></mat-spinner>
+</div>
+
+<div *ngIf="candidate && !loading" class="container mt-2">
+  <mat-card class="mb-4">
+    <mat-card-content class="text-center py-3">
+      <h3 class="mb-2">Interview for: <strong>{{ candidate.username }}</strong></h3>
+      <p class="text-muted mb-0">Email: <strong>{{ candidate.email }}</strong></p>
+    </mat-card-content>
+  </mat-card>
+
+  <form [formGroup]="interviewForm">
+    <div class="row">
+      <div class="col-12 col-md-4 mb-3 mb-md-0">
+        <mat-card class="p-3 mb-4">
+          <mat-card-header>
+            <mat-card-title class="p-2">Create Interview</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-form-field appearance="outline" class="w-100 mb-3">
+              <mat-label>Interview Type</mat-label>
+              <mat-select formControlName="interviewType">
+                <mat-option value="Personal">Personal</mat-option>
+                <mat-option value="Technical">Technical</mat-option>
+                <mat-option value="Practical">Practical</mat-option>
+                <mat-option value="HR">HR</mat-option>
+              </mat-select>
+              <mat-error *ngIf="interviewForm.get('interviewType')?.hasError('required')">Required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100 mb-3">
+              <mat-label>No. of Questions</mat-label>
+              <mat-select [ngModel]="noOfQuestions[interviewType]" (ngModelChange)="noOfQuestions[interviewType] = $event; generateQuestions()" [ngModelOptions]="{standalone: true}">
+                <mat-option *ngFor="let num of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" [value]="num">{{ num }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <div formArrayName="questions" cdkDropList (cdkDropListDropped)="drop($event)" class="question-container" role="listbox" aria-label="Question List">
+              <div *ngFor="let question of getQuestionControls(); let i = index" [formGroupName]="i" class="mb-4 p-2 border rounded" cdkDrag role="option" [attr.aria-label]="'Question ' + (i + 1)">
+                <mat-form-field appearance="outline" class="w-100 mb-3" *ngIf="interviewType === 'Personal' || interviewType === 'HR'">
+                  <mat-label>Element Type</mat-label>
+                  <mat-select formControlName="elementType">
+                    <mat-option value="textbox">Textbox</mat-option>
+                    <mat-option value="textarea">Textarea</mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="question.get('elementType')?.hasError('required')">Required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="w-100 mb-3">
+                  <mat-label>Question {{ i + 1 }}</mat-label>
+                  <textarea matInput formControlName="question" placeholder="Enter question..."></textarea>
+                  <mat-error *ngIf="question.get('question')?.hasError('required')">Required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="w-100 mb-3">
+                  <mat-label>Description {{ i + 1 }}</mat-label>
+                  <textarea matInput formControlName="description" placeholder="Enter description..."></textarea>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="w-100 mb-3" *ngIf="interviewType === 'Technical' || interviewType === 'Practical'">
+                  <mat-label>Question Type</mat-label>
+                  <mat-select formControlName="questionType" (selectionChange)="onQuestionTypeChange(question)">
+                    <mat-option value="Objective">Objective</mat-option>
+                    <mat-option value="Descriptive">Descriptive</mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="question.get('questionType')?.hasError('required')">Required</mat-error>
+                </mat-form-field>
+
+                <div *ngIf="question.get('questionType')?.value === 'Objective'">
+                  <mat-form-field appearance="outline" class="w-100 mb-3">
+                    <mat-label>Objective</mat-label>
+                    <mat-select formControlName="objective">
+                      <mat-option *ngFor="let option of objectiveOptions" [value]="option">{{ option }}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" class="w-100 mb-3">
+                    <mat-label>Option 1</mat-label>
+                    <input matInput formControlName="option1" placeholder="Enter first option">
+                    <mat-error *ngIf="question.get('option1')?.hasError('required')">Required</mat-error>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" class="w-100 mb-3">
+                    <mat-label>Option 2</mat-label>
+                    <input matInput formControlName="option2" placeholder="Enter second option">
+                    <mat-error *ngIf="question.get('option2')?.hasError('required')">Required</mat-error>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" class="w-100 mb-3">
+                    <mat-label>Option 3</mat-label>
+                    <input matInput formControlName="option3" placeholder="Enter third option">
+                    <mat-error *ngIf="question.get('option3')?.hasError('required')">Required</mat-error>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" class="w-100 mb-3">
+                    <mat-label>Option 4</mat-label>
+                    <input matInput formControlName="option4" placeholder="Enter fourth option">
+                    <mat-error *ngIf="question.get('option4')?.hasError('required')">Required</mat-error>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" class="w-100 mb-3">
+                    <mat-label>Correct Answer</mat-label>
+                    <mat-select formControlName="correctAnswer">
+                      <mat-option *ngFor="let option of [question.get('option1')?.value, question.get('option2')?.value, question.get('option3')?.value, question.get('option4')?.value]" [value]="option" [disabled]="!option">{{ option }}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="question.get('correctAnswer')?.hasError('required')">Required</mat-error>
+                  </mat-form-field>
+                </div>
+
+                <div *ngIf="question.get('questionType')?.value === 'Descriptive'">
+                  <mat-form-field appearance="outline" class="w-100 mb-3">
+                    <mat-label>Expected Answer</mat-label>
+                    <textarea matInput formControlName="expectedAnswer" placeholder="Enter expected answer..."></textarea>
+                    <mat-error *ngIf="question.get('expectedAnswer')?.hasError('required')">Required</mat-error>
+                  </mat-form-field>
+                </div>
+
+                <div class="d-flex gap-2 flex-wrap">
+                  <button mat-stroked-button color="warn" (click)="skipQuestion(i)" *ngIf="!question.get('skipped')?.value && !question.get('submitted')?.value" class="flex-grow-1">
+                    <mat-icon>skip_next</mat-icon> Skip
+                  </button>
+                  <button mat-stroked-button color="primary" (click)="reuseQuestion(i)" *ngIf="question.get('skipped')?.value || question.get('submitted')?.value" class="flex-grow-1">
+                    <mat-icon>refresh</mat-icon> Reuse
+                  </button>
+                </div>
+                <span *ngIf="question.get('skipped')?.value" class="text-muted d-block mt-2">Skipped</span>
+              </div>
+
+              <button mat-raised-button color="primary" (click)="submitQuestions()" class="w-100 mt-3">
+                <mat-icon>send</mat-icon> Submit Questions
+              </button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div class="col-12 col-md-8">
+        <mat-card class="p-3">
+          <mat-card-content>
+            <mat-vertical-stepper linear #stepper role="tablist" aria-label="Interview Rounds">
+              <div formArrayName="rounds">
+                <mat-step *ngFor="let round of getRoundControls(); let i = index" [stepControl]="round" [label]="'Round ' + (i + 1) + ': ' + roundNames[i]" role="tab">
+                  <div [formGroup]="round">
+                    <div class="d-flex justify-content-end mb-3">
+                      <span class="badge rounded-pill" [ngClass]="{'bg-success': round.get('roundPercentage')?.value >= 25, 'bg-danger': round.get('roundPercentage')?.value < 25}">
+                        {{ round.get('roundPercentage')?.value || 0 }}%
+                      </span>
+                    </div>
+
+                    <ng-container *ngIf="getQuestionsForRound(i).length > 0">
+                      <div formArrayName="questions" class="question-block p-3 border rounded">
+                        <div *ngFor="let question of getRoundQuestions(i).controls; let qIndex = index" [formGroupName]="qIndex" class="mb-4">
+                          <p class="fw-bold mb-2 border p-2 shadow-sm">
+                            <span>Question {{ qIndex + 1 }}: </span>
+                            <span class="question-text">{{ getQuestionsForRound(i)[qIndex].question }}</span>
+                          </p>
+                          <p class="text-muted">{{ getQuestionsForRound(i)[qIndex].description }}</p>
+                          <p *ngIf="getQuestionsForRound(i)[qIndex].objective">
+                            Objective: {{ getQuestionsForRound(i)[qIndex].objective }}
+                          </p>
+
+                          <div *ngIf="getQuestionsForRound(i)[qIndex].questionType === 'Objective'">
+                            <mat-radio-group formControlName="answer" [disabled]="getQuestionsForRound(i)[qIndex].submitted || getQuestionsForRound(i)[qIndex].skipped">
+                              <mat-radio-button *ngFor="let option of getQuestionsForRound(i)[qIndex].options" [value]="option" class="d-block mb-2">{{ option }}</mat-radio-button>
+                            </mat-radio-group>
+                          </div>
+
+                          <div *ngIf="getQuestionsForRound(i)[qIndex].questionType === 'Descriptive'">
+                            <div [ngSwitch]="getQuestionsForRound(i)[qIndex].elementType || 'textarea'">
+                              <mat-form-field appearance="outline" class="w-100" *ngSwitchCase="'textbox'">
+                                <mat-label>Answer for Question {{ qIndex + 1 }}</mat-label>
+                                <input matInput formControlName="answer" [disabled]="getQuestionsForRound(i)[qIndex].submitted || getQuestionsForRound(i)[qIndex].skipped" placeholder="Enter your answer...">
+                              </mat-form-field>
+                              <mat-form-field appearance="outline" class="w-100" *ngSwitchCase="'textarea'">
+                                <mat-label>Answer for Question {{ qIndex + 1 }}</mat-label>
+                                <textarea matInput formControlName="answer" [disabled]="getQuestionsForRound(i)[qIndex].submitted || getQuestionsForRound(i)[qIndex].skipped" placeholder="Enter your answer..."></textarea>
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <p *ngIf="getQuestionsForRound(i)[qIndex].submitted || getQuestionsForRound(i)[qIndex].skipped" class="mt-2" [ngClass]="{'text-success': getQuestionsForRound(i)[qIndex].marks > 0, 'text-danger': getQuestionsForRound(i)[qIndex].marks === 0}">
+                            {{ getQuestionsForRound(i)[qIndex].marks > 0 ? 'Correct' : getQuestionsForRound(i)[qIndex].skipped ? 'Skipped' : 'Incorrect' }} ({{ getQuestionsForRound(i)[qIndex].marks | number:'1.1-1' }} / {{ MAX_ROUND_SCORE / getQuestionsForRound(i).length | number:'1.1-1' }} marks)
+                          </p>
+
+                          <div class="mt-3 d-flex gap-2 flex-wrap">
+                            <button mat-raised-button color="primary" (click)="submitQuestion(i, qIndex)" [disabled]="getQuestionsForRound(i)[qIndex].submitted || getQuestionsForRound(i)[qIndex].skipped || !question.get('answer')?.value" class="flex-grow-1">
+                              <mat-icon>send</mat-icon> Solve
+                            </button>
+                            <button mat-stroked-button color="warn" (click)="skipQuestionInRound(i, qIndex)" [disabled]="getQuestionsForRound(i)[qIndex].skipped || getQuestionsForRound(i)[qIndex].submitted" class="flex-grow-1">
+                              <mat-icon>skip_next</mat-icon> Skip
+                            </button>
+                            <button mat-stroked-button color="primary" (click)="reuseQuestionInRound(i, qIndex)" *ngIf="getQuestionsForRound(i)[qIndex].skipped || getQuestionsForRound(i)[qIndex].submitted" class="flex-grow-1">
+                              <mat-icon>refresh</mat-icon> Reuse
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-container>
+
+                    <mat-form-field appearance="outline" class="w-100 mb-3" *ngIf="getQuestionsForRound(i).length === 0">
+                      <mat-label>Feedback</mat-label>
+                      <textarea matInput formControlName="feedback" placeholder="Enter feedback..."></textarea>
+                    </mat-form-field>
+
+                    <div class="mb-3" *ngIf="!round.get('skipped')?.value">
+                      <label class="form-label">Status *</label>
+                      <mat-radio-group formControlName="status" (change)="onStatusChange(i)" class="d-flex flex-column">
+                        <mat-radio-button value="Clear" class="mb-2">Selected</mat-radio-button>
+                        <mat-radio-button value="Not Clear" class="mb-2">Not Selected</mat-radio-button>
+                      </mat-radio-group>
+                      <mat-error *ngIf="round.get('status')?.hasError('required')">Required</mat-error>
+                    </div>
+
+                    <div class="d-flex gap-2 flex-wrap">
+                      <button mat-stroked-button color="warn" (click)="skipRound(i)" *ngIf="!round.get('skipped')?.value" class="flex-grow-1">
+                        <mat-icon>skip_next</mat-icon> Skip Round
+                      </button>
+                      <button mat-stroked-button color="primary" (click)="reuseRound(i)" *ngIf="round.get('skipped')?.value" class="flex-grow-1">
+                        <mat-icon>refresh</mat-icon> Reuse Round
+                      </button>
+                    </div>
+                    <span *ngIf="round.get('skipped')?.value" class="text-muted d-block mt-2">Skipped</span>
+
+                    <div class="d-flex justify-content-between mt-4 gap-2">
+                      <button mat-stroked-button matStepperPrevious *ngIf="i !== 0" class="flex-grow-1">
+                        <mat-icon>arrow_back</mat-icon> Back
+                      </button>
+                      <button mat-raised-button color="primary" matStepperNext [disabled]="getQuestionsForRound(i).length > 0 ? !areAllQuestionsSubmitted(i) : (round.invalid && !round.get('skipped')?.value)" *ngIf="i !== rounds.length - 1" class="flex-grow-1">
+                        Continue <mat-icon>arrow_forward</mat-icon>
+                      </button>
+                    </div>
+                  </div>
+                </mat-step>
+              </div>
+            </mat-vertical-stepper>
+
+            <div *ngIf="isRejected" class="alert alert-danger mt-4 text-center fw-bold">
+              Candidate Rejected at Round {{ rejectedRound + 1 }}
+            </div>
+
+            <div class="mt-4 text-center">
+              <p class="fw-bold">Total Score: {{ calculateTotalScore() }}% (out of 100%)</p>
+              <p [ngClass]="{'text-success': calculateTotalScore() >= 80, 'text-danger': calculateTotalScore() < 80}">
+                Selection Status: {{ calculateTotalScore() >= 80 ? 'Selected (80% or higher)' : 'Not Selected (below 80%)' }}
+              </p>
+              <div class="d-flex justify-content-center gap-2 flex-wrap">
+                <button mat-raised-button color="accent" (click)="onSubmit()" [disabled]="isRejected" class="px-3">
+                  <mat-icon>save</mat-icon> Submit Interview
+                </button>
+                <button mat-stroked-button (click)="saveAsDraft()" class="px-3">
+                  <mat-icon>draft</mat-icon> Save as Draft
+                </button>
+                <button mat-stroked-button (click)="toggleScoreReport()" class="px-3">
+                  <mat-icon>assessment</mat-icon> Toggle Score Report
+                </button>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card *ngIf="showScoreReport" class="mt-4 p-3">
+          <mat-card-header>
+            <mat-card-title>Score Report</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p><strong>Candidate Name:</strong> {{ getScoreReport().candidate.username }}</p>
+            <p><strong>Email:</strong> {{ getScoreReport().candidate.email }}</p>
+            <h5 class="mt-3">Rounds:</h5>
+            <div *ngFor="let round of getScoreReport().rounds" class="mb-3 border-bottom pb-2">
+              <h6>{{ round.roundName }}</h6>
+              <p><strong>Round Percentage:</strong> {{ round.roundPercentage }}% (max 25%)</p>
+              <p><strong>Feedback:</strong> {{ round.feedback || 'None' }}</p>
+              <p><strong>Status:</strong> {{ round.status }}</p>
+              <p><strong>Skipped:</strong> {{ round.skipped ? 'Yes' : 'No' }}</p>
+              <div *ngIf="round.questions.length > 0">
+                <h6>Questions:</h6>
+                <div *ngFor="let q of round.questions" class="ms-3">
+                  <p><strong>Question:</strong> {{ q.question }}</p>
+                  <p><strong>Selected Answer:</strong> {{ q.answer || 'Not answered' }}</p>
+                  <p><strong>Correct:</strong> {{ q.questionType === 'Objective' ? (q.answer === q.correctAnswer ? 'Yes' : 'No') : (q.marks > 0 ? 'Yes' : 'No') }}</p>
+                  <p><strong>Marks:</strong> {{ q.marks | number:'1.1-1' }}%</p>
+                  <p *ngIf="q.elementType"><strong>Element Type:</strong> {{ q.elementType }}</p>
+                </div>
+              </div>
+            </div>
+            <p><strong>Total Score:</strong> {{ getScoreReport().totalScore }}% (out of 100%)</p>
+            <p><strong>Selection Status:</strong> {{ getScoreReport().selectionStatus }}</p>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="mt-4 p-3">
+          <mat-card-header>
+            <mat-card-title>Saved Interviews</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div *ngIf="savedInterviews.length === 0" class="text-muted">
+              No interviews saved yet.
+            </div>
+            <div *ngFor="let interview of savedInterviews" class="mb-3 border-bottom pb-2">
+              <p><strong>Interview ID:</strong> {{ interview.id }}</p>
+              <p><strong>Status:</strong> {{ interview.status }}</p>
+              <p><strong>Total Score:</strong> {{ interview.totalScore }}%</p>
+              <p><strong>Selection Status:</strong> {{ interview.selectionStatus }}</p>
+              <h6>Rounds:</h6>
+              <div *ngFor="let round of interview.rounds" class="ms-3">
+                <p><strong>{{ round.roundName }}:</strong> {{ round.roundPercentage }}% ({{ round.status }})</p>
+                <p><strong>Feedback:</strong> {{ round.feedback || 'None' }}</p>
+                <div *ngIf="round.questions.length > 0">
+                  <h6>Questions:</h6>
+                  <div *ngFor="let q of round.questions" class="ms-3">
+                    <p><strong>Question:</strong> {{ q.question }}</p>
+                    <p><strong>Answer:</strong> {{ q.answer || 'Not answered' }}</p>
+                    <p><strong>Marks:</strong> {{ q.marks }}%</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </form>
+</div>

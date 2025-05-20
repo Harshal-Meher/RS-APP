@@ -1,0 +1,34 @@
+<div class="col-12 d-flex justify-content-start">
+<div class="alert alert-success" role="alert" *ngIf="msgSend">
+  Message sent successfully...✅
+</div>
+</div>
+<div class="col-12 d-flex justify-content-start">
+  <div class="alert alert-warning alert-dismissible fade show" *ngIf="alertMsg" role="alert">
+    <strong>Hello User..! </strong> Plese Enter Message ........
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+</div>
+
+<div class="d-flex justify-content-start align-items-center w-100"  style="height: 50vh;">
+  <div class="text-center p-3 border shadow-lg  w-50">
+    <h2>Enter Message</h2>
+    
+    <!-- Message Input Field -->
+     <form [formGroup]="msgForm">
+
+       <div class="mb-3">
+         <mat-form-field class="w-100">
+           <mat-label>Enter your message</mat-label>
+           <input class="form-control p-2" name="msg" formControlName="msg"  matInput #messageInput placeholder="Enter your message" required/>
+          </mat-form-field>
+          <mat-error *ngIf="msgForm.controls['msg'].invalid && (msgForm.controls['msg'].dirty || msgForm.controls['msg'].touched)">
+            Please Enter Message
+          </mat-error>
+        </div>
+        
+      </form>
+    <!-- Send Button -->
+    <button mat-raised-button color="warn" [disabled]="msgForm.invalid" (click)="sendMessage(messageInput)">Send Notification</button>
+  </div>
+</div>

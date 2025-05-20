@@ -1,0 +1,391 @@
+<p>editcandidate works!</p>
+<mat-accordion class="example-accordion col-md-8">
+  <mat-card-title class="me-4">Candidate Registration</mat-card-title>
+  <hr>
+  <!-- Personal Details Panel -->
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Personal Details</mat-panel-title>
+      <mat-panel-description>
+        Provide your personal information
+      </mat-panel-description>
+      <mat-icon>add</mat-icon>
+    </mat-expansion-panel-header>
+    <mat-card class="p-3">
+      <form [formGroup]="frmCandidates" (ngSubmit)="addCandidates()">
+        <div class="row g-3 mb-3">
+          <div class="col-md-6 col-12">
+            <mat-form-field  class="w-100">
+              <mat-label>Username</mat-label>
+              <input matInput type="text" formControlName="username" placeholder="Enter username" />
+              <mat-error *ngIf="frmCandidates.get('username')?.invalid && frmCandidates.get('username')?.touched">
+                Please enter a valid username.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6 col-12">
+            <mat-form-field class="w-100">
+              <mat-label>Email</mat-label>
+              <input matInput type="email" formControlName="email" placeholder="Enter email" />
+              <mat-error *ngIf="frmCandidates.get('email')?.invalid && frmCandidates.get('email')?.touched">
+                Please enter a valid email.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-md-6 col-12">
+            <mat-form-field class="w-100">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" formControlName="password" placeholder="Enter password" />
+              <mat-error *ngIf="frmCandidates.get('password')?.invalid && frmCandidates.get('password')?.touched">
+                Please enter a valid password.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6 col-12">
+            <mat-form-field class="w-100">
+              <mat-label>Confirm Password</mat-label>
+              <input matInput type="password" formControlName="confirmpassword" placeholder="Confirm password" />
+              <mat-error *ngIf="frmCandidates.get('confirmpassword')?.invalid && frmCandidates.get('confirmpassword')?.touched">
+                Passwords do not match.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-md-6 col-12">
+            <mat-form-field class="w-100">
+              <mat-label>First Name</mat-label>
+              <input matInput type="text" formControlName="firstName" placeholder="Enter first name" />
+              <mat-error *ngIf="frmCandidates.get('firstName')?.invalid && frmCandidates.get('firstName')?.touched">
+                Please enter your first name.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6 col-12">
+            <mat-form-field class="w-100">
+              <mat-label>Last Name</mat-label>
+              <input matInput type="text" formControlName="lastName" placeholder="Enter last name" />
+              <mat-error *ngIf="frmCandidates.get('lastName')?.invalid && frmCandidates.get('lastName')?.touched">
+                Please enter your last name.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-md-6 col-12">
+            <mat-form-field class="w-100">
+              <mat-label>Mobile Number</mat-label>
+              <input matInput type="tel" formControlName="mobileNumber" placeholder="Enter mobile number" />
+              <mat-error *ngIf="frmCandidates.get('mobileNumber')?.invalid && frmCandidates.get('mobileNumber')?.touched">
+                Please enter a valid mobile number.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6 col-12">
+            <mat-form-field class="w-100">
+              <mat-label>Date of Birth</mat-label>
+              <input matInput [matDatepicker]="dobPicker" formControlName="dateOfBirth" placeholder="Select date of birth" />
+              <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+              <mat-datepicker #dobPicker></mat-datepicker>
+              <mat-error *ngIf="frmCandidates.get('dateOfBirth')?.invalid && frmCandidates.get('dateOfBirth')?.touched">
+                Please select a valid date of birth.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-md-6 col-12">
+            <mat-form-field  class="w-100">
+              <mat-label>Address Line 1</mat-label>
+              <input matInput type="text" formControlName="addressLine1" placeholder="Enter address line 1" />
+              <mat-error *ngIf="frmCandidates.get('addressLine1')?.invalid && frmCandidates.get('addressLine1')?.touched">
+                Please enter your address line 1.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6 col-12">
+            <mat-form-field class="w-100">
+              <mat-label>Address Line 2</mat-label>
+              <input matInput type="text" formControlName="addressLine2" placeholder="Enter address line 2 (optional)" />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end gap-2 p-2">
+          <button mat-raised-button color="primary" type="submit" [disabled]="frmCandidates.invalid">Register</button>
+          <button mat-raised-button color="warn" type="button" (click)="frmCandidates.reset()">Reset</button>
+        </div>
+      </form>
+    </mat-card>
+  </mat-expansion-panel>
+
+  <!-- Educational Details Panel -->
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Educational Details</mat-panel-title>
+      <mat-panel-description>
+        Provide your educational background
+      </mat-panel-description>
+      <mat-icon>add</mat-icon>
+    </mat-expansion-panel-header>
+    <mat-card class="p-3">
+      <form [formGroup]="frmEducation">
+        <div class="row g-3 mb-3">
+          <div class="col-md-6 col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Highest Qualification</mat-label>
+              <input matInput type="text" formControlName="qualification" placeholder="Enter qualification" />
+              <mat-error *ngIf="frmEducation.get('qualification')?.invalid && frmEducation.get('qualification')?.touched">
+                Please enter your qualification.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6 col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>University Name</mat-label>
+              <input matInput type="text" formControlName="university" placeholder="Enter university name" />
+              <mat-error *ngIf="frmEducation.get('university')?.invalid && frmEducation.get('university')?.touched">
+                Please enter your university name.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-md-6 col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Major/Field of Study</mat-label>
+              <input matInput type="text" formControlName="major" placeholder="Enter major/field of study" />
+              <mat-error *ngIf="frmEducation.get('major')?.invalid && frmEducation.get('major')?.touched">
+                Please enter your major or field of study.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6 col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Graduation Year</mat-label>
+              <input matInput type="number" formControlName="graduationYear" placeholder="Enter graduation year" min="1900" max="2100" />
+              <mat-error *ngIf="frmEducation.get('graduationYear')?.invalid && frmEducation.get('graduationYear')?.touched">
+                Please enter a valid graduation year.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-md-6 col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>GPA/Percentage</mat-label>
+              <input matInput type="number" formControlName="gpa" placeholder="Enter GPA or percentage" step="0.01" min="0" max="100" />
+              <mat-error *ngIf="frmEducation.get('gpa')?.invalid && frmEducation.get('gpa')?.touched">
+                Please enter a valid GPA or percentage.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6 col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Institute Location</mat-label>
+              <input matInput type="text" formControlName="location" placeholder="Enter institute location" />
+              <mat-error *ngIf="frmEducation.get('location')?.invalid && frmEducation.get('location')?.touched">
+                Please enter institute location.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="d-flex justify-content-end gap-2 p-2">
+            <button mat-raised-button color="primary" type="submit" (click)="addEducationalDetails()" [disabled]="frmEducation.invalid">Register</button>
+            <button mat-raised-button color="warn" type="button" (click)="frmEducation.reset()">Reset</button>
+          </div>
+        </div>
+      </form>
+    </mat-card>
+  </mat-expansion-panel>
+
+  <!-- Professional Details Panel -->
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>Professional Details</mat-panel-title>
+      <mat-panel-description>Provide your work experience</mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-card class="p-3">
+      <form [formGroup]="frmProfessional">
+        <div class="row g-3 mb-3">
+          <div class="col-md-4 col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Company Name</mat-label>
+              <input matInput type="text" formControlName="companyName" placeholder="Enter company name" />
+              <mat-error *ngIf="frmProfessional.get('companyName')?.invalid && frmProfessional.get('companyName')?.touched">
+                Please enter company name.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Job Title</mat-label>
+              <input matInput type="text" formControlName="jobTitle" placeholder="Enter job title" />
+              <mat-error *ngIf="frmProfessional.get('jobTitle')?.invalid && frmProfessional.get('jobTitle')?.touched">
+                Please enter job title.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Years of Experience</mat-label>
+              <input matInput type="number" formControlName="yearsExperience" placeholder="Enter years" min="0" />
+              <mat-error *ngIf="frmProfessional.get('yearsExperience')?.invalid && frmProfessional.get('yearsExperience')?.touched">
+                Please enter valid years of experience.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-md-4 col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Department</mat-label>
+              <input matInput type="text" formControlName="department" placeholder="Enter department" />
+              <mat-error *ngIf="frmProfessional.get('department')?.invalid && frmProfessional.get('department')?.touched">
+                Please enter your department.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Start Date</mat-label>
+              <input matInput [matDatepicker]="startPicker" formControlName="startDate" placeholder="Select start date" />
+              <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+              <mat-datepicker #startPicker></mat-datepicker>
+              <mat-error *ngIf="frmProfessional.get('startDate')?.invalid && frmProfessional.get('startDate')?.touched">
+                Please select start date.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>End Date</mat-label>
+              <input matInput [matDatepicker]="endPicker" formControlName="endDate" placeholder="Select end date" />
+              <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+              <mat-datepicker #endPicker></mat-datepicker>
+              <mat-error *ngIf="frmProfessional.get('endDate')?.invalid && frmProfessional.get('endDate')?.touched">
+                Please select end date.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-md-4 col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>City</mat-label>
+              <input matInput type="text" formControlName="city" placeholder="Enter city" />
+              <mat-error *ngIf="frmProfessional.get('city')?.invalid && frmProfessional.get('city')?.touched">
+                Please enter city.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>State</mat-label>
+              <input matInput type="text" formControlName="state" placeholder="Enter state" />
+              <mat-error *ngIf="frmProfessional.get('state')?.invalid && frmProfessional.get('state')?.touched">
+                Please enter state.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Country</mat-label>
+              <input matInput type="text" formControlName="country" placeholder="Enter country" />
+              <mat-error *ngIf="frmProfessional.get('country')?.invalid && frmProfessional.get('country')?.touched">
+                Please enter country.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-md-4 col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Manager Name</mat-label>
+              <input matInput type="text" formControlName="managerName" placeholder="Enter manager name" />
+              <mat-error *ngIf="frmProfessional.get('managerName')?.invalid && frmProfessional.get('managerName')?.touched">
+                Please enter manager name.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Employee ID</mat-label>
+              <input matInput type="text" formControlName="employeeId" placeholder="Enter employee ID" />
+              <mat-error *ngIf="frmProfessional.get('employeeId')?.invalid && frmProfessional.get('employeeId')?.touched">
+                Please enter employee ID.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Work Location</mat-label>
+              <input matInput type="text" formControlName="workLocation" placeholder="Enter work location" />
+              <mat-error *ngIf="frmProfessional.get('workLocation')?.invalid && frmProfessional.get('workLocation')?.touched">
+                Please enter work location.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-md-4 col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Current Salary</mat-label>
+              <input matInput type="number" formControlName="salary" placeholder="Enter current salary" min="0" />
+              <mat-error *ngIf="frmProfessional.get('salary')?.invalid && frmProfessional.get('salary')?.touched">
+                Please enter a valid salary.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Skills</mat-label>
+              <input matInput type="text" formControlName="skills" placeholder="Enter skills (comma-separated)" />
+              <mat-error *ngIf="frmProfessional.get('skills')?.invalid && frmProfessional.get('skills')?.touched">
+                Please enter your skills.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Certifications</mat-label>
+              <input matInput type="text" formControlName="certifications" placeholder="Enter certifications" />
+              <mat-error *ngIf="frmProfessional.get('certifications')?.invalid && frmProfessional.get('certifications')?.touched">
+                Please enter your certifications.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-12">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Company Details</mat-label>
+              <textarea matInput formControlName="companyDetails" placeholder="Enter company details" rows="3"></textarea>
+              <mat-error *ngIf="frmProfessional.get('companyDetails')?.invalid && frmProfessional.get('companyDetails')?.touched">
+                Please enter company details.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end gap-2 p-2">
+          <button mat-raised-button color="primary" type="submit" (click)="addProfessionalDetails()" [disabled]="frmEducation.invalid">Register</button>
+          <button mat-raised-button color="warn" type="button" (click)="frmEducation.reset()">Reset</button>
+        </div>
+
+      </form>
+    </mat-card>
+  </mat-expansion-panel>
+</mat-accordion>

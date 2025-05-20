@@ -1,0 +1,70 @@
+<div class="col-md-12 course-details-wrapper mt-5">
+  <!-- Course Details Section -->
+  <div *ngIf="course" class="course-details gap-4 d-flex justify-content-between shadow">
+    <div class="course-header-card mt-5">
+      <div class="course-title p-2">
+        <h1>{{ course.course_name }}</h1>
+        <p class="course-description">{{ course.description }}</p>
+        <button mat-stroked-button routerLink="/courses/courses-list">
+          <mat-icon class="me-1">arrow_backward</mat-icon>
+          Back to Courses
+        </button>
+      </div>
+    </div>
+
+    <div class="course-info-card shadow">
+      <img [src]="course.image || '/assets/Images/Angular.webp'" alt="{{ course.course_name }}" class="course-image" />
+      <div class="course-meta">
+        <p><strong>Course Name : </strong> {{ course.course_name }}</p>
+        <p><strong>Duration : </strong> {{ course.duration }}</p>
+        <p><strong>Rating : </strong> <span class="rating">{{ course.rating }} ★★★★★</span></p>
+        <p><strong>Certification : </strong> {{ course.certification }}</p>
+      </div>
+      <button mat-stroked-button class="w-100"><strong>Price : </strong> <span class="price fw-bolder"> {{ course.price |currency:'INR'}} </span></button>
+      <div class="w-100 d-flex justify-content-end p-2">
+        <button mat-stroked-button  class="w-50 me-2">
+          <i class="fa fa-shopping-cart"></i> Buy Now
+        </button>
+        <button mat-stroked-button color="warn" class="w-50">
+          <i class="fa fa-cart-plus"></i> Cart
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!course" class="no-course">
+    <p>Course not found.</p>
+  </div>
+
+  <div class="course-content col-md-8 mt-5">
+    <div class="course-stepper">
+      <mat-stepper orientation="vertical" class="bg-color" [linear]="isLinear" #stepper>
+        <mat-step class="bg-color" *ngFor="let item of summaryPart; let i = index">
+          <ng-template matStepLabel  class="bg-color">{{ item.title }}</ng-template>
+          <p>{{ item.details }}</p>
+          <ul>
+            <li>{{ item.keywords }}</li>
+          </ul>
+          <p class="local-relevance">{{ item.localRelevance }}</p>
+          <div class="stepper-controls d-flex">
+            <button mat-stroked-button matStepperPrevious class="me-2">
+              <mat-icon class="me-1">arrow_backward</mat-icon>
+              Back</button>
+            <button mat-stroked-button matStepperNext class="d-flex align-items-center">
+              <mat-icon class="me-1">arrow_forward</mat-icon>Next
+            </button>
+          </div>
+        </mat-step>
+      </mat-stepper>
+    </div>
+
+    <!-- Stats Section -->
+    <!-- <div class="course-stats">
+      <div class="stat-card">
+        <i class="fa fa-heart text-danger"></i>
+        <span class="stat-counter" data-to="180" data-speed="7000">205</span>
+        <span class="stat-title">Most Viewers</span>
+      </div>
+    </div> -->
+  </div>
+</div>

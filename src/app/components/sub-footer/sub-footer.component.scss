@@ -1,0 +1,134 @@
+/* Custom CSS with Provided Color Palette */
+:root {
+  --primary: #1e3a8a;    /* Deep Blue */
+  --secondary: #93c5fd;  /* Bright Blue */
+  --accent: #10b981;     /* Emerald Green */
+  --neutral: #f3f4f6;    /* Light Gray */
+  --dark: #111827;       /* Almost Black */
+  --text: #374151;       /* Gray Text */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--neutral);
+  color: var(--text);
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+}
+.hero h1 {
+  font-weight: 700;
+}
+.hero .lead {
+  font-size: 1.25rem;
+}
+.hero .btn-primary {
+  background-color: var(--accent);
+  border: none;
+  transition: transform 0.3s, background-color 0.3s;
+}
+.hero .btn-primary:hover {
+  transform: translateY(-3px);
+  background-color: #10b981;
+}
+
+/* Courses Section */
+.courses {
+  background-color: var(--neutral);
+}
+.courses .course-card {
+  border: none;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: white;
+}
+.courses .course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.courses .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+.courses .card-title {
+  color: var(--primary);
+}
+
+.btn-hover:hover {
+    background-color: #dbeafe !important; 
+    color: #10b981 !important;        
+  }
+
+/* Impact Section */
+.impact {
+  background-color: var(--primary);
+  color: white;
+}
+.impact-item {
+  min-width: 150px;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+.impact-item:hover {
+  transform: scale(1.05);
+}
+.impact-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.impact-label {
+  font-size: 1.2rem;
+}
+
+/* CTA Section */
+.cta {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+}
+.cta .btn-primary {
+  background-color: white;
+  color: var(--primary);
+  border: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+.cta .btn-primary:hover {
+  background-color: var(--dark);
+  color: white;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero .lead {
+    font-size: 1rem;
+  }
+  .impact-item {
+    min-width: 120px;
+  }
+  .impact-value {
+    font-size: 2rem;
+  }
+  .cta h2 {
+    font-size: 1.8rem;
+  }
+}
+
+.highlight-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.highlight-text {
+    font-size: 0.9rem;
+    color: #666;
+}

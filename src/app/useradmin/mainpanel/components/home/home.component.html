@@ -1,0 +1,97 @@
+<!-- <app-admin-header></app-admin-header> -->
+<section *ngIf="authService.isLoggedIn()" class="container bg-primary-subtle p-2">
+  <h2 class="text-center mb-4 fw-bold">Dashboard Overview</h2>
+
+  <div class="row g-4 justify-content-center">
+    <!-- Total Users Card -->
+    <div class="col-md-3 col-sm-6 d-flex">
+      <mat-card class="shadow-lg p-3 rounded-3 text-center d-flex flex-column w-100 h-100">
+        <mat-card-header class="d-flex justify-content-center pb-2">
+          <mat-icon style="font-size: 48px; height: 48px; width: 48px; color: #3f51b5;">group</mat-icon>
+        </mat-card-header>
+        <mat-card-content class="flex-grow-1 d-flex flex-column justify-content-center">
+          <mat-card-title class="fs-5 fw-semibold mb-2">Total Users</mat-card-title>
+          <h3 class="text-primary mb-2">{{ userCount }}</h3>
+          <p class="text-muted mb-0">Registered Users</p>
+        </mat-card-content>
+        <mat-card-actions class="pt-3">
+          <a routerLink="/useradmin/mainpanel/UserView" class="text-decoration-none text-primary fw-medium">View Users</a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <!-- Active Users Card -->
+    <div class="col-md-3 col-sm-6 d-flex">
+      <mat-card class="shadow-lg p-3 rounded-3 text-center d-flex flex-column w-100 h-100">
+        <mat-card-header class="d-flex justify-content-center pb-2">
+          <mat-icon style="font-size: 48px; height: 48px; width: 48px; color: #4caf50;">verified_user</mat-icon>
+        </mat-card-header>
+        <mat-card-content class="flex-grow-1 d-flex flex-column justify-content-center">
+          <mat-card-title class="fs-5 fw-semibold mb-2">Active Users</mat-card-title>
+          <h3 class="text-success mb-2">{{ userLogin }}</h3>
+          <p class="text-muted mb-0">Currently Online</p>
+        </mat-card-content>
+        <mat-card-actions class="pt-3">
+          <a routerLink="/useradmin/mainpanel/activate-user" class="text-decoration-none text-primary fw-medium">View Activate</a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <!-- Total Courses Card -->
+    <div class="col-md-3 col-sm-6 d-flex">
+      <mat-card class="shadow-lg p-3 rounded-3 text-center d-flex flex-column w-100 h-100">
+        <mat-card-header class="d-flex justify-content-center pb-2">
+          <mat-icon style="font-size: 48px; height: 48px; width: 48px; color: #ff9800;">shopping_cart</mat-icon>
+        </mat-card-header>
+        <mat-card-content class="flex-grow-1 d-flex flex-column justify-content-center">
+          <mat-card-title class="fs-5 fw-semibold mb-2">Total Courses</mat-card-title>
+          <h3 class="text-warning mb-2">{{ courseLength }}</h3>
+          <p class="text-muted mb-1">Professional: {{ professionalCourseCount }}</p>
+          <p class="text-muted mb-0">Crash: {{ crashCourseCount }}</p>
+        </mat-card-content>
+        <mat-card-actions class="pt-3">
+          <a routerLink="/useradmin/mainpanel/allCourses" class="text-decoration-none text-primary fw-medium">View Courses</a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <!-- Total Revenue Card -->
+    <div class="col-md-3 col-sm-6 d-flex">
+      <mat-card class="shadow-lg p-3 rounded-3 text-center d-flex flex-column w-100 h-100">
+        <mat-card-header class="d-flex justify-content-center pb-2">
+          <mat-icon style="font-size: 48px; height: 48px; width: 48px; color: #e91e63;">attach_money</mat-icon>
+        </mat-card-header>
+        <mat-card-content class="flex-grow-1 d-flex flex-column justify-content-center">
+          <mat-card-title class="fs-5 fw-semibold mb-2">Total Revenue</mat-card-title>
+          <h3 class="text-danger mb-2">$0</h3>
+          <p class="text-muted mb-0">Generated Revenue</p>
+        </mat-card-content>
+        <mat-card-actions class="pt-3">
+          <a routerLink="mainpanel/revenue" class="text-decoration-none text-primary fw-medium">View Revenue</a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <!-- Interviewed Card -->
+    <div class="col-md-3 col-sm-6 d-flex">
+      <mat-card class="shadow-lg p-3 rounded-3 text-center d-flex flex-column w-100 h-100">
+        <mat-card-header class="d-flex justify-content-center pb-2">
+          <mat-icon style="font-size: 48px; height: 48px; width: 48px; color: #3cff00;">person</mat-icon>
+        </mat-card-header>
+        <mat-card-content class="flex-grow-1 d-flex flex-column justify-content-center">
+          <mat-card-title class="fs-5 fw-semibold mb-2">Interviewed</mat-card-title>
+          <a routerLink="/useradmin/mainpanel/premium-candidates/view-premium-candidate" 
+             class="text-decoration-none text-primary mb-1 d-block">
+            Premium: {{ premiumCandidatesCount }}
+          </a>
+          <p class="text-muted mb-0">All: {{ candidatesCounts }}</p>
+        </mat-card-content>
+        <mat-card-actions class="pt-3">
+          <a routerLink="/useradmin/mainpanel/candidates/view-candidate" 
+             class="text-decoration-none text-primary fw-medium">View Candidates</a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</section>
+<!-- <app-admin-footer></app-admin-footer> -->

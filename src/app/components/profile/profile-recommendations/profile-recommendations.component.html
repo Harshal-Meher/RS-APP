@@ -1,0 +1,74 @@
+<div class="container mt-2 shadow-lg">
+    <mat-card class="shadow-sm mb-4">
+        <mat-card-header class="d-flex justify-content-between align-items-center">
+            <h5 class="fw-medium mb-0 fs-6">Recommended Jobs for You</h5>
+            <button mat-stroked-button color="primary">View All</button>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-tab-group>
+                <mat-tab label="Applies (2)"></mat-tab>
+                <mat-tab label="Profile (39)"></mat-tab>
+                <mat-tab label="You Might Like (13)"></mat-tab>
+                <mat-tab label="Preferences (0)"></mat-tab>
+            </mat-tab-group>
+  
+            <div class="row mt-3 p-2">
+                <div class="col-md-4">
+                    <mat-card class="p-3 shadow-sm border">
+                        <div class="d-flex align-items-center">
+                            <mat-icon class="me-2 text-danger">business</mat-icon>
+                            <div>
+                                <h6 class="mb-1 fw-semibold">React JS, Python</h6>
+                                <p class="text-muted small mb-1">LINKING MINDS CON...</p>
+                                <p class="text-muted small mb-1">Hybrid - Mumbai</p>
+                                <p class="text-muted small">1d ago</p>
+                            </div>
+                        </div>
+                    </mat-card>
+                </div>
+  
+                <div class="col-md-4 p-2">
+                    <mat-card class="p-3 shadow-sm border">
+                        <div class="d-flex align-items-center">
+                            <mat-icon class="me-2 text-warning">business_center</mat-icon>
+                            <div>
+                                <h6 class="mb-1 fw-semibold">Java Full Stack Lead</h6>
+                                <p class="text-muted small mb-1">DWS Investment</p>
+                                <p class="text-muted small mb-1">Pune</p>
+                                <p class="text-muted small">3d ago</p>
+                            </div>
+                        </div>
+                    </mat-card>
+                </div>
+  
+                <div class="col-md-4 d-flex align-items-center justify-content-center">
+                    <button mat-stroked-button color="primary">View All Jobs</button>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="shadow-sm">
+        <mat-card-header class="d-flex justify-content-between align-items-center">
+            <h5 class="fw-bold fs-6 fst-normal">5 Early Access Roles from Top Companies</h5>
+            <button mat-stroked-button color="primary">View All</button>
+        </mat-card-header>
+        <mat-card-content>
+            <p class="text-muted small">See what recruiters are searching for, even before they post a job</p>
+  
+            <div class="row m-2" >
+                <div class="col-md-6 p-2" *ngFor="let job of jobData">
+                    <mat-card class="p-3 shadow" >
+                        <h5 class="fw-semibold">{{job.companyName}}                 
+                      </h5>
+                      <span class="text-muted small">{{job.employmentType}} | {{job.applicationMethod}}</span>
+                        <p class="text-muted small mb-1">{{job.jobTitle}}</p>
+                        <p class="text-muted small">0-1 Yrs | {{job.salary || '5,00,000'}} P.A. | {{job.jobLocation}}</p>
+                        <button mat-raised-button class="mt-2 text-bg-light">Share Interest</button>
+                    </mat-card>
+                </div>
+  
+            </div>
+        </mat-card-content>
+    </mat-card>
+  </div>
+  

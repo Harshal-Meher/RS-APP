@@ -1,0 +1,194 @@
+<div class="container-fluid p-3">
+  <div class="row m-auto m-3 p-5">
+    <div class="col-12 col-md-6 text-center px-4 py-3 full-vh-container d-flex align-items-center justify-content-center">
+      <img src="/assets/Images/register.png" alt="Form Banner" class="img-fluid rounded shadow">
+    </div>
+
+    <div class="container  col-sm-6 mt-3 ">
+      <form class="row m-auto g-3 cardfrm" [formGroup]="registrationForm">
+        <div class="d-flex flex-column align-items-center">
+          <h2 class="text-center  p-2">Registration Form</h2>
+          <p class="form-label p-10 pt-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg>
+            Create a Company Account
+          </p>
+        </div>
+        <div class="row  m-auto">
+          <div class="col-md p-1 ">
+            <mat-form-field class="w-100">
+              <mat-label>Email ID</mat-label>
+              <input matInput type="email" formControlName="email" placeholder="Email">
+              <mat-error *ngIf="registrationForm.controls['email'].hasError('required') && registrationForm.controls['email'].touched">
+                Email is required.
+              </mat-error>
+              <mat-error *ngIf="registrationForm.controls['email'].hasError('email') && registrationForm.controls['email'].touched">
+                Please enter a valid email address.
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+        </div>
+        <div class="row m-auto " appPasswordMatch>
+          <div class="col-md-6 p-1">
+            <mat-form-field >
+              <mat-label>Password</mat-label>
+              <input matInput type="password" formControlName="password" placeholder="Password" #password>
+              <mat-error *ngIf="registrationForm.controls['password'].invalid && (registrationForm.controls['password'].dirty || registrationForm.controls['password'].touched)">
+                Please enter a valid password.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6 p-1 ">
+            <mat-form-field >
+              <mat-label>Confirm Password</mat-label>
+              <input matInput type="password" formControlName="confirmpassword" placeholder="Confirm Password" #confirmpass>
+              <mat-error *ngIf="registrationForm.controls['confirmpassword'].invalid && (registrationForm.controls['confirmpassword'].dirty || registrationForm.controls['confirmpassword'].touched)">
+                Passwords do not match.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row m-auto">
+          <div class="col-sm-6 p-1">
+            <mat-form-field class="w-100">
+              <mat-label>Industry Type</mat-label>
+              <mat-select formControlName="industryType">
+                <mat-option value="Manufacturing">Manufacturing</mat-option>
+                <mat-option value="Healthcare">Healthcare</mat-option>
+                <mat-option value="IT">IT</mat-option>
+              </mat-select>
+              <mat-error *ngIf="registrationForm.controls['industryType'].hasError('required') && registrationForm.controls['industryType'].touched">
+                Please select an industry type.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6 p-1">
+            <mat-form-field class="w-100">
+              <mat-label>Company Type</mat-label>
+              <mat-select formControlName="companyType">
+                <mat-option value="Private">Private</mat-option>
+                <mat-option value="Public">Public</mat-option>
+                <mat-option value="NGO">NGO</mat-option>
+              </mat-select>
+              <mat-error *ngIf="registrationForm.controls['companyType'].hasError('required') && registrationForm.controls['companyType'].touched">
+                Please select a company type.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row m-auto">
+          <div class="col-sm-12 p-1">
+            <mat-form-field class="w-100">
+              <mat-label>Address</mat-label>
+              <textarea matInput formControlName="address" row m-autos="1" placeholder="Enter your address"></textarea>
+              <mat-error *ngIf="registrationForm.controls['address'].hasError('required') && registrationForm.controls['address'].touched">
+                Address is required.
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+        </div>
+        <div class="row m-auto">
+          <div class="col-sm-4 p-1">
+            <mat-form-field class="w-100">
+              <mat-label>Country</mat-label>
+              <input matInput type="text" formControlName="country" placeholder="Country">
+              <mat-error *ngIf="registrationForm.controls['country'].hasError('required') && registrationForm.controls['country'].touched">
+                Country is required.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-4 p-1">
+            <mat-form-field class="w-100">
+              <mat-label>State</mat-label>
+              <input matInput type="text" formControlName="state" placeholder="State">
+              <mat-error *ngIf="registrationForm.controls['state'].hasError('required') && registrationForm.controls['state'].touched">
+                State is required.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-4 p-1">
+            <mat-form-field class="w-100">
+              <mat-label>City</mat-label>
+              <input matInput type="text" formControlName="city" placeholder="City">
+              <mat-error *ngIf="registrationForm.controls['city'].hasError('required') && registrationForm.controls['city'].touched">
+                City is required.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row m-auto">
+          <div class="col-sm-4 p-1">
+            <mat-form-field class="w-100">
+              <mat-label>Pin Code</mat-label>
+              <input matInput type="text" formControlName="pinCode" placeholder="Pin Code">
+              <mat-error *ngIf="registrationForm.controls['pinCode'].hasError('required') && registrationForm.controls['pinCode'].touched">
+                Pin Code is required.
+              </mat-error>
+              <mat-error *ngIf="registrationForm.controls['pinCode'].hasError('pattern') && registrationForm.controls['pinCode'].touched">
+                Pin Code must be a 6-digit number.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-4 p-1">
+            <mat-form-field class="w-100">
+              <mat-label>Contact Number</mat-label>
+              <input matInput type="tel" formControlName="contactNumber" placeholder="Contact Number">
+              <mat-error *ngIf="registrationForm.controls['contactNumber'].hasError('required') && registrationForm.controls['contactNumber'].touched">
+                Contact Number is required.
+              </mat-error>
+              <mat-error *ngIf="registrationForm.controls['contactNumber'].hasError('pattern') && registrationForm.controls['contactNumber'].touched">
+                Contact Number must be 10 digits.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-4 p-1">
+            <mat-form-field class="w-100">
+              <mat-label>Contact Person</mat-label>
+              <input matInput type="text" formControlName="contactPerson" placeholder="Contact Person">
+              <mat-error *ngIf="registrationForm.controls['contactPerson'].hasError('required') && registrationForm.controls['contactPerson'].touched">
+                Contact Person is required.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+
+        <div class="col-12">
+          <mat-checkbox formControlName="termsAndConditions" required>
+            I agree to terms and conditions
+          </mat-checkbox>
+          <mat-error *ngIf="registrationForm.controls['termsAndConditions'].hasError('required') && registrationForm.controls['termsAndConditions'].touched">
+            You must agree to the terms and conditions.
+          </mat-error>
+        </div>
+        <div class="col-12">
+          <mat-checkbox formControlName="receivePromotions">
+            I want to receive promotions on my email ID
+          </mat-checkbox>
+        </div>
+
+        <div class="row m-auto">
+          <div class="col-md">
+            <div class="d-flex justify-content-end p-2">
+
+                <button mat-stroked-button color="accent" [disabled]="registrationForm.invalid" class="me-2" (click)="onSubmit()">Register</button>
+
+
+
+              <button mat-stroked-button type="reset"  (click)="onReset()">Cancel</button>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,161 @@
+.footer {
+  background: #17212b;
+  border-radius: 10px 10px 0 0;
+}
+
+.footer-heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1.25rem;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: #2abb9b;
+}
+
+.footer-desc {
+  font-size: 0.9rem;
+  color: #a3b1c2;
+  line-height: 1.6;
+}
+
+.footer-nav {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-nav-link {
+  color: #a3b1c2;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.4rem 0;
+  display: block;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-nav-link:hover {
+  color: #2abb9b;
+  transform: translateX(5px);
+}
+
+.social-bar {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+.social-link {
+  color: #a3b1c2;
+  font-size: 1.2rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-link.liked {
+  color: #ff4d4f;
+}
+
+.social-link:hover {
+  color: #2abb9b;
+  transform: scale(1.1);
+}
+
+.social-link.liked:hover {
+  color: #ff4d4f;
+}
+
+.footer-info {
+  font-size: 0.9rem;
+  color: #a3b1c2;
+}
+
+.footer-info li {
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.footer-info i {
+  color: #2abb9b;
+  width: 20px;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0;
+}
+
+.news-input {
+  border: none;
+  border-radius: 5px 0 0 5px;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  background: #2a3b4c;
+  color: #fff;
+  flex-grow: 1;
+  transition: background 0.3s ease;
+}
+
+.news-input:hover,
+.news-input:focus {
+  background: #3b4b5c;
+  outline: none;
+}
+
+.news-input::placeholder {
+  color: #a3b1c2;
+}
+
+.news-btn {
+  border-radius: 0 5px 5px 0;
+  background: #2abb9b;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.news-btn:hover {
+  background: #219d82;
+}
+
+.footer-divider {
+  border-top: 1px solid rgba(163, 177, 194, 0.2);
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  color: #a3b1c2;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .footer-heading {
+    font-size: 1.15rem;
+  }
+
+  .social-bar {
+    justify-content: center;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .news-input,
+  .news-btn {
+    border-radius: 5px;
+    width: 100%;
+  }
+}
+

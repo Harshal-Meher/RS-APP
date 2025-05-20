@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+*,html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.scroll-button svg {
+  background-color: #00b374;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+  color: #fff; 
+}
+.scroll-button {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  color: #e8e8e8;
+  border-radius: 5px;
+  text-decoration: none;
+}
+:root {
+  --primary: #1e3a8a;    /* Deep Blue */
+  --secondary: #93d593;  /* Bright Blue */
+  --accent: #10b981;     /* Emerald Green */
+  --neutral: #f3f4f6;    /* Light Gray */
+  --dark: #111827;       /* Almost Black */
+  --text: #374151;       /* Gray Text */
+}
+

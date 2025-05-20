@@ -1,0 +1,83 @@
+.container {
+  max-width: 1200px;
+}
+
+.industry-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+i {
+  color: #10b981;
+}
+
+.industry-item {
+  padding: 15px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  position: relative;
+  transition: background-color 0.3s ease;
+
+  // Horizontal line
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #dee2e6;
+    transition: background-color 0.3s ease;
+  }
+
+  // Arrow icon
+  .arrow-icon {
+    font-size: 1.2rem;
+    color: #dee2e6;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  // Hover effect
+  &:hover {
+    background-color: #f8f9fa;
+
+    &:after {
+      background-color: #10b981;
+    }
+
+    .arrow-icon {
+      color: #10b981;
+      transform: translateX(5px);
+    }
+  }
+
+  span {
+    color: #333;
+    font-size: 1.1rem;
+  }
+}
+
+.text-primary {
+  color: #007bff !important;
+}
+
+.text-success {
+  color: #28a745 !important;
+}
+
+// Responsive Adjustments
+@media (max-width: 768px) {
+  .industry-item {
+    padding: 10px 15px;
+
+    span {
+      font-size: 1rem;
+    }
+
+    .arrow-icon {
+      font-size: 1rem;
+    }
+  }
+}

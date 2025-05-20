@@ -1,0 +1,112 @@
+<section class="career-container">
+  <!-- Header -->
+  <header class="col-md-12 hero-section shadow text-dark">
+    <div class="col-md-12 hero-content">
+      <h1 class="col-md-12 p-2 hero-title"> Software Industry Career</h1>
+      <p className="hero-subtitle">
+        Master Angular and join the future of web development with our expert-led courses.
+      </p>
+      <button class="hero-btn border border-2" (click)="navigateToContact()">Get Started</button>
+    </div>
+    <img
+      src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=200&auto=format&fit=crop"
+      class="hero-img"
+      alt="Angular development"
+    />
+  </header>
+
+  <!-- Training Programs -->
+  <section class="training-section">
+    <h2 class="section-title">Software Training Programs</h2>
+    <div class="card-grid">
+      <div class="card">
+        <img
+          src="https://miro.medium.com/v2/resize:fit:1093/1*wyt0vhfNT5oMx4ZWPn0IcQ.png"
+          class="card-img"
+          alt="Angular Bootcamp"
+        />
+        <div class="card-content">
+          <h3 class="card-title">Core Java + Spring Boot</h3>
+          <p class="card-text">
+            A 6-month immersive course diving into Spring Boot, Java, and hands-on projects.
+          </p>
+          <button mat-raised-button class="card-btn text-" (click)="navigateToCourses()">Enroll Now</button>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="/assets/Images/Angular.webp"
+          class="card-img"
+          alt="Advanced Angular"
+        />
+        <div class="card-content">
+          <h3 class="card-title">Advanced Angular</h3>
+          <p class="card-text">
+            A 6-week deep dive into advanced Angular techniques for scalable applications.
+          </p>
+          <button mat-raised-button class="card-btn" (click)="navigateToCourses()">Enroll Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Job Opportunities -->
+  <section class="jobs-section">
+    <h2 class="section-title">Job Opportunities</h2>
+    <div class="accordion" id="jobAccordion">
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button
+            class="accordion-btn"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#job1"
+            aria-expanded="true"
+            aria-controls="job1"
+          >
+            Angular Developer
+          </button>
+        </h3>
+        <div id="job1" class="accordion-content collapse show" data-bs-parent="#jobAccordion">
+          <p class="accordion-text">
+            Create dynamic web apps with Angular. Requires 2+ years of experience and TypeScript expertise.
+          </p>
+          <button  mat-stroked-button
+          (click)="navigateToContact()">Apply Now</button>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button
+            class="accordion-btn collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#job2"
+            aria-expanded="false"
+            aria-controls="job2"
+          >
+            Coding Instructor
+          </button>
+        </h3>
+        <div id="job2" class="accordion-content collapse" data-bs-parent="#jobAccordion">
+          <p class="accordion-text">
+            Teach Angular and web development. Needs 3+ years of experience and strong communication skills.
+          </p>
+          <button mat-raised-button (click)="navigateToContact()">Apply Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta-section shadow text-black">
+    <h2 class="cta-title">Ready to Transform Your Future?</h2>
+    <p class="cta-text">
+      Join our Angular classes or team to build cutting-edge web solutions!
+    </p>
+    <button mat-stroked-button class="cta-btn border border-2" (click)="navigateToContact()">Apply or Enroll Now</button>
+  </section>
+</section> 
+
+
+<app-footer></app-footer>

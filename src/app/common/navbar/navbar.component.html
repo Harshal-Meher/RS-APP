@@ -1,0 +1,149 @@
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-light fixed-top"
+  [ngClass]="{ 'shadow-sm': !isHidden }"
+>
+  <div class="container-fluid px-4">
+    <a class="navbar-brand fw-bold" routerLink="">RS eBiz</a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="toggleNavbar()"
+      [attr.aria-expanded]="!isCollapsed"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div
+      class="collapse navbar-collapse"
+      [ngClass]="{ show: !isCollapsed }"
+      id="navbarSupportedContent"
+    >
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about" routerLinkActive="active"
+            >About</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/courses/courses-list" routerLinkActive="active"
+            >Courses</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/career" routerLinkActive="active"
+            >Careers</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/jobs/job-profile" routerLinkActive="active"
+            >Jobs</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/industry"
+            routerLinkActive="active"
+            >Industry</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/packages" routerLinkActive="active"
+            >Packages</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/employer/register-employer"
+            routerLinkActive="active"
+            >Employer</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact-us" routerLinkActive="active"
+            >Contact Us</a
+          >
+        </li>
+      </ul>
+
+      <ul class="navbar-nav align-items-center">
+        <ng-container *ngIf="!userAuthService.isAuthenticated()">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="auth/signIn">
+              <button mat-stroked-button class="w-100">
+                Login
+              </button>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="auth/signUp">
+              <button mat-raised-button  class="w-100">
+                Sign Up
+              </button>
+            </a>
+          </li>
+        </ng-container>
+
+        <ng-container *ngIf="userAuthService.isAuthenticated()">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle d-flex align-items-center"
+              href="#"
+              id="userDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <span class="user-email me-2" matTooltip="Logged in user">{{
+                userEmail
+              }}</span>
+              <mat-icon>account_circle</mat-icon>
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="userDropdown"
+            >
+              <li>
+                <a class="dropdown-item " routerLink="/profile">Profile</a>
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="/settings">Settings</a>
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <button
+                  class="dropdown-item text-danger"
+                  (click)="logoutWithSpinner()"
+                  [disabled]="isLoading"
+                >
+                  <button mat-raised-button *ngIf="!isLoading" color="warn">
+                    <mat-icon>logout</mat-icon><span>Logout</span>
+                  </button>
+                  <mat-spinner
+                    *ngIf="isLoading"
+                    diameter="20"
+                    class="d-inline-block"
+                    color="bg-light"
+                  ></mat-spinner>
+                </button>
+              </li>
+            </ul>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

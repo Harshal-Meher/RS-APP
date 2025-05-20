@@ -1,0 +1,357 @@
+//......................photos..............................
+.gallery-showcase {
+  background-color: #fff;
+}
+
+.gallery-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.gallery-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+.gallery-item {
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+}
+
+.gallery-img {
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: flex-end;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-content {
+  width: 100%;
+}
+
+.gallery-item-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.gallery-item-text {
+  font-size: 0.9rem;
+}
+
+.gallery-item-meta {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 991px) {
+  .gallery-img {
+      height: 200px;
+  }
+  
+  .gallery-title {
+      font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .gallery-img {
+      height: 180px;
+  }
+  
+  .gallery-item-title {
+      font-size: 1.1rem;
+  }
+  
+  .gallery-item-text {
+      font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .gallery-img {
+      height: 220px;
+  }
+}
+
+//...........................cards....................................
+
+.developer-section {
+    background-color: #f5f7fa;
+    padding: 5rem 0;
+}
+
+.developer-card {
+    border-radius: 15px;
+    background: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.developer-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.icon-container {
+    flex: 0 0 auto;
+}
+
+.developer-icon {
+    max-width: 70px;
+    transition: transform 0.3s ease;
+}
+
+.developer-card:hover .developer-icon {
+    transform: scale(1.1);
+}
+
+.content-container {
+    flex: 1;
+}
+
+.developer-title {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.developer-text {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.btn-grad {
+    background: linear-gradient(45deg, #00b374, #008bc7);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-grad:hover {
+    background: linear-gradient(45deg, #028456, #036e9c);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+}
+
+@media (max-width: 767.98px) {
+    .developer-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .icon-container {
+        margin-bottom: 1.5rem;
+        margin-right: 0;
+    }
+
+    .developer-btn {
+        width: 100%;
+    }
+
+    .developer-title {
+        font-size: 1.1rem;
+    }
+
+    .developer-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .developer-card {
+        min-height: 200px;
+    }
+}
+
+
+
+// ...........................Package..................................
+.packages-section {
+  background-color: #f8f9fa;
+}
+
+.package-card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.package-title {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.package-price {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.package-price strong {
+  font-size: 1.5rem;
+  color: #000;
+}
+
+.package-desc {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.feature-list {
+  border: none;
+}
+
+.feature-list .list-group-item {
+  border: none;
+  padding: 8px 0;
+  background: none;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.feature-list .list-group-item.active {
+  // color: #28a745;
+  position: relative;
+  padding-left: 25px;
+}
+
+.feature-list .list-group-item.active:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  // color: #28a745;
+  font-weight: bold;
+}
+
+.feature-list .list-group-item:not(.active) {
+  color: #999;
+  padding-left: 25px;
+  position: relative;
+}
+
+.feature-list .list-group-item:not(.active):before {
+  content: "✗";
+  position: absolute;
+  left: 0;
+  color: #dc3545;
+}
+
+.package-radio {
+  margin-right: 10px;
+}
+
+.explore-btn {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+  transform: scale(1);
+  background: linear-gradient(45deg, #00b374, #008bc7);
+  border-color: #0056b3;
+  color: #fff;
+}
+
+.explore-packages-btn {
+  display: inline-block;
+  padding: 14px 35px;
+  background: linear-gradient(45deg, #00b374, #008bc7);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 50px;
+  border: none;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.explore-packages-btn:hover {
+  background: linear-gradient(45deg, #00b374, #008bc7);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+  color: white;
+}
+.explore-packages-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 123, 255, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .package-card {
+      margin-bottom: 20px;
+  }
+  
+  .package-title {
+      font-size: 1.5rem;
+  }
+  
+  .explore-btn {
+      width: 100%;
+    }
+    
+    .explore-packages-btn {
+      padding: 12px 30px;
+      font-size: 1rem;
+      width: 100%;
+      max-width: 300px;
+    }
+    
+    .package-btn {
+      padding: 2rem 0;
+    }
+  }
+
+  .highlight-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+}
+.highlight-text {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+  
+  

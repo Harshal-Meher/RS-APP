@@ -1,0 +1,77 @@
+$primary: #6d81ed; // Soft Blue
+$accent: #7a89c2; // Lighter Blue
+$warn: #dc3545; // Red for warnings
+$background: #f8f9fa; // Bootstrap light gray
+
+.bg-light {
+  background-color: $background !important;
+}
+
+.bg-primary {
+  background-color: $primary !important;
+}
+
+.job-card {
+  background-color: #fff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba($primary, 0.05);
+    transform: translateY(-2px);
+  }
+
+  &.bg-primary-subtle {
+    background-color: rgba($primary, 0.1);
+    border-left: 4px solid $primary;
+  }
+
+  img {
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    color: #212529;
+  }
+
+  .mat-chip {
+    height: 24px;
+    font-size: 0.8rem;
+  }
+}
+
+.main-title {
+  font-size: clamp(1rem, 4vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.title-highlight {
+  color: #10b981;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .job-card {
+    padding: 1rem;
+  }
+
+  .main-title {
+    font-size: clamp(0.9rem, 3.5vw, 2rem);
+  }
+}

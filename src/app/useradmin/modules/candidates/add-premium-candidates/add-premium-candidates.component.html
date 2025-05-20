@@ -1,0 +1,129 @@
+<div class="container mt-5">
+  <mat-card class="p-3">
+    <mat-card-title class="mb-3">Add Premium Candidate</mat-card-title>
+
+    <form [formGroup]="employerForm" (ngSubmit)="onSubmit()" class="container-fluid">
+      <div class="row">
+
+        <div class="col-md-6 mb-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Employer Name</mat-label>
+            <input type="text" matInput formControlName="employerName" [matAutocomplete]="auto" />
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredEmployers" [value]="option">{{ option }}</mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="employerForm.get('employerName')?.touched && employerForm.get('employerName')?.hasError('required')">
+              Employer name is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+
+        <div class="col-md-6 mb-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Candidate Email</mat-label>
+            <input type="email" matInput formControlName="candidateEmail" />
+            <mat-error *ngIf="employerForm.get('candidateEmail')?.touched && employerForm.get('candidateEmail')?.hasError('required')">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="employerForm.get('candidateEmail')?.hasError('email')">
+              Please enter a valid email address
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Candidate Full Name</mat-label>
+            <input type="text" matInput formControlName="candidateName" placeholder="Enter candidate's full name" />
+            <mat-error *ngIf="employerForm.get('candidateName')?.touched && employerForm.get('candidateName')?.hasError('required')">
+              Candidate name is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+
+        <div class="col-md-6 mb-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Phone Number</mat-label>
+            <input type="tel" matInput formControlName="candidatePhone" />
+            <mat-error *ngIf="employerForm.get('candidatePhone')?.touched && employerForm.get('candidatePhone')?.hasError('required')">
+              Phone number is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Role</mat-label>
+            <input type="text" matInput formControlName="candidateRole" />
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Experience (years)</mat-label>
+            <input type="number" matInput formControlName="experience" />
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Location</mat-label>
+            <input type="text" matInput formControlName="location" />
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <label class="form-label d-block mb-2">Package</label>
+          <mat-radio-group formControlName="selectedPackage" class="d-flex flex-column gap-3 flex-wrap">
+            <mat-radio-button value="silver">Silver</mat-radio-button>
+            <mat-radio-button value="gold">Gold</mat-radio-button>
+            <mat-radio-button value="platinum">Platinum</mat-radio-button>
+          </mat-radio-group>
+          <mat-error *ngIf="employerForm.get('selectedPackage')?.touched && employerForm.get('selectedPackage')?.invalid">
+            Package is required
+          </mat-error>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Start Date</mat-label>
+            <input matInput [matDatepicker]="startPicker" formControlName="startDate" />
+            <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+            <mat-datepicker #startPicker></mat-datepicker>
+            <mat-error *ngIf="employerForm.get('startDate')?.touched && employerForm.get('startDate')?.hasError('required')">
+              Start date is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>End Date</mat-label>
+            <input matInput [matDatepicker]="endPicker" formControlName="endDate" />
+            <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+            <mat-datepicker #endPicker></mat-datepicker>
+            <mat-error *ngIf="employerForm.get('endDate')?.touched && employerForm.get('endDate')?.hasError('required')">
+              End date is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <mat-checkbox formControlName="status">Active</mat-checkbox>
+          <mat-error *ngIf="employerForm.get('status')?.touched && employerForm.get('status')?.hasError('required')">
+            Status is required
+          </mat-error>
+        </div>
+
+      </div>
+
+      <div class="text-end mt-3">
+        <button mat-raised-button color="primary" type="submit" [disabled]="employerForm.invalid">
+          Submit
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>
